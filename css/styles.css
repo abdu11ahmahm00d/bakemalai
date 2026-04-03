@@ -337,3 +337,98 @@ footer p {
     transparent 20px
   );
 }
+
+/* --- Kiki Chatbot --- */
+.chatbot-floating-btn {
+  position: fixed;
+  bottom: 110px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--color-mint);
+  border: 3px solid var(--color-chocolate);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  z-index: 1040;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.chatbot-floating-btn:hover {
+  transform: scale(1.1);
+  background-color: var(--color-caramel);
+}
+
+.chatbot-panel {
+  position: fixed;
+  bottom: 120px;
+  right: 30px;
+  width: 320px;
+  height: 420px;
+  background-color: var(--color-cream);
+  border: 3px solid var(--color-chocolate);
+  border-radius: 15px;
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.chatbot-panel.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.chatbot-header {
+  background-color: var(--color-chocolate);
+  color: var(--color-caramel);
+  font-family: var(--font-heading);
+}
+
+.chatbot-body {
+  flex: 1;
+  overflow-y: auto;
+  background-color: var(--color-cream);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chatbot-footer {
+  background-color: #fff;
+  border-top: 2px solid var(--color-caramel);
+}
+
+.chat-bubble {
+  max-width: 80%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  word-wrap: break-word;
+  font-weight: 500;
+}
+
+.kiki-bubble {
+  align-self: flex-start;
+  background-color: var(--color-caramel);
+  color: var(--color-chocolate);
+  border-bottom-left-radius: 2px;
+}
+
+.user-bubble {
+  align-self: flex-end;
+  background-color: var(--color-candy-pink);
+  color: var(--color-cream);
+  border-bottom-right-radius: 2px;
+  box-shadow: 0 2px 5px rgba(232,67,147,0.3);
+}
