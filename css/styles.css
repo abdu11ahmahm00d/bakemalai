@@ -317,3 +317,23 @@ footer p {
   transform: translateY(-5px);
   box-shadow: 0 8px 15px rgba(0,0,0,0.15);
 }
+
+/* --- About Utilities --- */
+.text-candy-pink {
+  color: var(--color-candy-pink) !important;
+}
+
+.border-candy-pink {
+  border-color: var(--color-candy-pink) !important;
+}
+
+.about-values-bg {
+  background-color: var(--color-cream);
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(232, 67, 147, 0.03),
+    rgba(232, 67, 147, 0.03) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
