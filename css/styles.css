@@ -1,0 +1,11 @@
+/* Base Styles for Bakemalai */
+:root {
+  --primary-color: #6a0d91; /* A rich purple for Bangladeshi sweets */
+  --secondary-color: #f8f1ff;
+  --text-color: #333;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+}
