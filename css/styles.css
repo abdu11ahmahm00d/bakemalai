@@ -1,34 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&display=swap');
-
-:root {
-  /* Willy Wonka Color Palette */
-  --color-chocolate: #3B1A08; /* Deep chocolate brown */
-  --color-caramel: #C8860A;   /* Golden caramel */
-  --color-candy-pink: #E84393; /* Candy pink */
-  --color-cream: #FFF8F0;     /* Cream white */
-  --color-mint: #4CAF82;      /* Mint green */
-
-  /* Typography */
-  --font-heading: 'Fredoka One', cursive, sans-serif;
-  --font-body: 'Nunito', sans-serif;
-}
-
-body {
-  font-family: var(--font-body);
-  background-color: var(--color-cream);
-  color: var(--color-chocolate);
-  margin: 0;
-  /* Subtle candy-stripe repeating-linear-gradient as thin top border */
-  border-top: 6px solid;
-  border-image: repeating-linear-gradient(
-    45deg,
-    var(--color-candy-pink),
-    var(--color-candy-pink) 10px,
-    var(--color-cream) 10px,
-    var(--color-cream) 20px
-  ) 1;
-}
-
+/* Willy Wonka Global Theme - Base inlined in HTML <head> */
 h1, h2, h3, h4, h5, h6, .navbar-brand {
   font-family: var(--font-heading);
 }
