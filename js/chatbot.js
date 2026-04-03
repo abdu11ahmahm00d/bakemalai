@@ -49,15 +49,20 @@ function sendMessage() {
     
     const body = document.getElementById('chatbotBody');
     
-    // Add user message to UI
-    body.innerHTML += `
-        <div class="chat-bubble user-bubble">
-            ${msg}
-        </div>
-    `;
-    input.value = '';
+    // Add user message to UI securely using textContent
+    const userBubble = document.createElement('div');
+    userBubble.className = 'chat-bubble user-bubble';
+    userBubble.textContent = msg;
+    body.appendChild(userBubble);
     
-    // Scroll to bottom
+    input.value = '';
+    body.scrollTop = body.scrollHeight;
+    
+    // Add typing indicator
+    const typingIndicator = document.createElement('div');
+    typingIndicator.className = 'chat-bubble kiki-bubble text-muted';
+    typingIndicator.innerHTML = '<em>Kiki is thinking... 🍩</em>';
+    body.appendChild(typingIndicator);
     body.scrollTop = body.scrollHeight;
     
     // Call Netlify Function
@@ -68,29 +73,35 @@ function sendMessage() {
     })
     .then(response => response.json())
     .then(data => {
-        if (data.reply) {
-            body.innerHTML += `
-                <div class="chat-bubble kiki-bubble">
-                    ${data.reply}
-                </div>
-            `;
-            body.scrollTop = body.scrollHeight;
-        } else {
-            body.innerHTML += `
-                <div class="chat-bubble kiki-bubble text-danger">
-                    Oops! Something went wrong on my end. 😔
-                </div>
-            `;
-            console.error("Chatbot error", data);
-            body.scrollTop = body.scrollHeight;
+        // Remove typing indicator
+        if (typingIndicator.parentNode) {
+            typingIndicator.parentNode.removeChild(typingIndicator);
         }
+
+        const kikiBubble = document.createElement('div');
+        kikiBubble.className = 'chat-bubble kiki-bubble';
+
+        if (data.reply) {
+            kikiBubble.textContent = data.reply;
+        } else {
+            kikiBubble.textContent = "Oops, Kiki is taking a cake break 🎂 Try again shortly!";
+            kikiBubble.classList.add('text-danger');
+            console.error("Chatbot response error", data);
+        }
+        body.appendChild(kikiBubble);
+        body.scrollTop = body.scrollHeight;
     })
     .catch(err => {
-        body.innerHTML += `
-            <div class="chat-bubble kiki-bubble text-danger">
-                Oops! Something went wrong. Make sure you're connected to the internet. 🔌
-            </div>
-        `;
+        // Remove typing indicator
+        if (typingIndicator.parentNode) {
+            typingIndicator.parentNode.removeChild(typingIndicator);
+        }
+
+        const errorBubble = document.createElement('div');
+        errorBubble.className = 'chat-bubble kiki-bubble text-danger';
+        errorBubble.textContent = "Oops, Kiki is taking a cake break 🎂 Try again shortly!";
+        body.appendChild(errorBubble);
+
         console.error("Fetch error", err);
         body.scrollTop = body.scrollHeight;
     });
