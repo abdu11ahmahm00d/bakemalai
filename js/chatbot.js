@@ -60,7 +60,39 @@ function sendMessage() {
     // Scroll to bottom
     body.scrollTop = body.scrollHeight;
     
-    // Stub for sending message. We'll handle Netlify function logic later.
-    console.log("Chatbot user message sent:", msg);
+    // Call Netlify Function
+    fetch('/.netlify/functions/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: msg })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.reply) {
+            body.innerHTML += `
+                <div class="chat-bubble kiki-bubble">
+                    ${data.reply}
+                </div>
+            `;
+            body.scrollTop = body.scrollHeight;
+        } else {
+            body.innerHTML += `
+                <div class="chat-bubble kiki-bubble text-danger">
+                    Oops! Something went wrong on my end. 😔
+                </div>
+            `;
+            console.error("Chatbot error", data);
+            body.scrollTop = body.scrollHeight;
+        }
+    })
+    .catch(err => {
+        body.innerHTML += `
+            <div class="chat-bubble kiki-bubble text-danger">
+                Oops! Something went wrong. Make sure you're connected to the internet. 🔌
+            </div>
+        `;
+        console.error("Fetch error", err);
+        body.scrollTop = body.scrollHeight;
+    });
 }
 
