@@ -28,8 +28,61 @@
     </nav>
 
     <main class="container py-5">
-        <h1>Gallery</h1>
-        <p class="lead">Glimpses of our handcrafted delicacies.</p>
+        <h1 class="display-4 fw-bold text-center mb-2 specialty-title">Our Sweet Gallery</h1>
+        <p class="lead text-center mb-5">Glimpses of our handcrafted delicacies and sweet moments.</p>
+
+        <!-- Filter Bar -->
+        <div class="d-flex justify-content-center flex-wrap gap-2 mb-5 filter-btn-group">
+            <button class="btn btn-candy-pulse active" data-filter="all">All</button>
+            <button class="btn btn-outline-chocolate" data-filter="chocolate">Chocolate</button>
+            <button class="btn btn-outline-chocolate" data-filter="black-forest">Black Forest</button>
+            <button class="btn btn-outline-chocolate" data-filter="special">Special</button>
+        </div>
+
+        <!-- Masonry Gallery -->
+        <div class="masonry-gallery">
+            <!-- 12 Placeholder Cards -->
+            <div class="masonry-item item-chocolate">
+                <img src="images/placeholder-gallery.jpg" loading="lazy" alt="Rich chocolate cake layers" class="img-fluid bg-light">
+            </div>
+            <div class="masonry-item item-black-forest">
+                <img src="images/placeholder-gallery.jpg" loading="lazy" alt="Black forest slice with cherry" class="img-fluid bg-light">
+            </div>
+            <div class="masonry-item item-special">
+                <img src="images/placeholder-gallery.jpg" loading="lazy" alt="Jaafrani Roshmallai dessert bowl" class="img-fluid bg-light">
+            </div>
+            <div class="masonry-item item-chocolate">
+                <img src="images/placeholder-gallery.jpg" loading="lazy" alt="Chocolate fudge cupcakes" class="img-fluid bg-light">
+            </div>
+            <div class="masonry-item item-black-forest">
+                <img src="images/placeholder-gallery.jpg" loading="lazy" alt="Whole black forest cake" class="img-fluid bg-light">
+            </div>
+            <div class="masonry-item item-special">
+                <img src="images/placeholder-gallery.jpg" loading="lazy" alt="Lemon tea time cake" class="img-fluid bg-light">
+            </div>
+            <div class="masonry-item item-chocolate">
+                <img src="images/placeholder-gallery.jpg" loading="lazy" alt="Chocolate tub cake being served" class="img-fluid bg-light">
+            </div>
+            <div class="masonry-item item-special">
+                <img src="images/placeholder-gallery.jpg" loading="lazy" alt="Special customized premium cake" class="img-fluid bg-light">
+            </div>
+            <div class="masonry-item item-black-forest">
+                <img src="images/placeholder-gallery.jpg" loading="lazy" alt="Cherry topped black forest pastry" class="img-fluid bg-light">
+            </div>
+            <div class="masonry-item item-chocolate">
+                <img src="images/placeholder-gallery.jpg" loading="lazy" alt="Moist chocolate cake piece" class="img-fluid bg-light">
+            </div>
+            <div class="masonry-item item-special">
+                <img src="images/placeholder-gallery.jpg" loading="lazy" alt="Gift box of mixed Bakemalai sweets" class="img-fluid bg-light">
+            </div>
+            <div class="masonry-item item-chocolate">
+                <img src="images/placeholder-gallery.jpg" loading="lazy" alt="Dark chocolate brownie" class="img-fluid bg-light">
+            </div>
+        </div>
+
+        <div class="text-center mt-5 pt-4 border-top border-caramel">
+            <h4 class="fw-bold text-chocolate mb-3">Want something custom? Chat with Kiki below!</h4>
+        </div>
     </main>
 
     <footer class="py-4 bg-light text-center border-top">
