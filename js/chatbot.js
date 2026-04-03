@@ -50,11 +50,11 @@ function sendMessage() {
     const body = document.getElementById('chatbotBody');
     
     // Add user message to UI
-    body.innerHTML += \`
+    body.innerHTML += `
         <div class="chat-bubble user-bubble">
-            \${msg}
+            ${msg}
         </div>
-    \`;
+    `;
     input.value = '';
     
     // Scroll to bottom
