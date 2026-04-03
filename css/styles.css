@@ -240,3 +240,44 @@ footer p {
 .text-caramel {
   color: var(--color-caramel) !important;
 }
+
+/* --- Cart & Offcanvas --- */
+.cart-floating-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--color-caramel);
+  color: var(--color-chocolate);
+  border: 3px solid var(--color-chocolate);
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  z-index: 1040;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.cart-floating-btn:hover {
+  transform: scale(1.05);
+  background-color: var(--color-mint);
+}
+
+.cart-badge {
+  background-color: var(--color-candy-pink) !important;
+  color: var(--color-cream) !important;
+  font-family: var(--font-body);
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  font-size: 0.9rem;
+  border: 2px solid var(--color-chocolate);
+}
+
+.candy-cart-sidebar {
+  background-color: var(--color-cream) !important;
+}
+
+.border-caramel {
+  border-color: var(--color-caramel) !important;
+}
