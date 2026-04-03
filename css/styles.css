@@ -232,3 +232,11 @@ footer p {
   color: var(--color-caramel);
   font-family: var(--font-heading);
 }
+
+.text-chocolate {
+  color: var(--color-chocolate) !important;
+}
+
+.text-caramel {
+  color: var(--color-caramel) !important;
+}
