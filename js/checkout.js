@@ -75,10 +75,69 @@ function handlePaymentToggle() {
 form.addEventListener('input', checkFormValidity);
 bkashRadios.forEach(radio => radio.addEventListener('change', handlePaymentToggle));
 
-function submitOrder() {
-    alert("Order Submitted Stub!");
+function clearCart() {
     localStorage.removeItem('bakemalai_cart');
-    window.location.href = 'index.html';
+}
+
+async function submitOrder() {
+    const confirmBtn = document.getElementById('confirmOrderBtn');
+    confirmBtn.disabled = true;
+    confirmBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Processing...';
+
+    const payload = {
+        name: document.getElementById('fullName').value,
+        phone: document.getElementById('phone').value,
+        address: document.getElementById('address').value,
+        city: document.getElementById('city').value,
+        paymentMethod: document.querySelector('input[name="paymentMethod"]:checked').value,
+        bkashTxnId: document.getElementById('txnId').value || '',
+        items: cartItems.map(item => ({ name: item.name, qty: item.quantity, price: item.price })),
+        total: cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0)
+    };
+
+    try {
+        const response = await fetch('/.netlify/functions/notify', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+            clearCart();
+            window.location.href = 'thankyou.html';
+        } else {
+            throw new Error('Notify failed');
+        }
+    } catch (error) {
+        confirmBtn.disabled = false;
+        confirmBtn.textContent = 'Confirm Order';
+
+        let toastContainer = document.getElementById('toastWrapper');
+        if (!toastContainer) {
+            toastContainer = document.createElement('div');
+            toastContainer.id = 'toastWrapper';
+            toastContainer.className = 'toast-container position-fixed bottom-0 start-50 translate-middle-x p-3';
+            toastContainer.style.zIndex = '1060';
+            document.body.appendChild(toastContainer);
+        }
+
+        toastContainer.innerHTML = `
+            <div class="toast align-items-center border-0 shadow-lg" role="alert" aria-live="assertive" aria-atomic="true" style="background-color: var(--color-candy-pink); color: white;">
+                <div class="d-flex">
+                    <div class="toast-body fw-bold fs-6">
+                        Something went wrong. Please call us at 01310-834233 🍫
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        `;
+        
+        if (typeof bootstrap !== "undefined") {
+            const toastEl = toastContainer.querySelector('.toast');
+            const bsToast = new bootstrap.Toast(toastEl, { delay: 6000 });
+            bsToast.show();
+        }
+    }
 }
 
 document.addEventListener('DOMContentLoaded', renderCheckoutSummary);
