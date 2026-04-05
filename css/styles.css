@@ -222,6 +222,49 @@ footer p {
   border-radius: var(--radius-md);
   box-shadow: 0 4px 6px rgba(0,0,0,0.05);
   backdrop-filter: blur(6px);
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  will-change: transform;
+}
+
+.bm-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(59, 26, 8, 0.2);
+}
+
+.product-img-ph {
+  height: 200px;
+  background: linear-gradient(135deg, var(--color-mint), var(--color-caramel-light));
+  border-bottom: 2px solid rgba(200,134,10,0.1);
+}
+
+.taste-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-md);
+}
+
+.taste-tile {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  position: relative;
+  aspect-ratio: 1 / 1;
+}
+
+.taste-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.taste-tile:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.1);
+}
+
+.cta-banner-new {
+  background: linear-gradient(135deg, var(--color-chocolate), var(--color-caramel));
+  padding: 5rem 0;
 }
 
 .bm-btn-primary {

@@ -77,46 +77,59 @@
             </div>
         </section>
         <section class="py-5 specialties-bg">
-            <div class="container text-center py-4">
-                <h2 class="display-4 fw-bold mb-5 specialty-title">Our Specialties</h2>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-3">
-                        <div class="card h-100 candy-card border-0 shadow-sm">
-                            <img src="images/placeholder-cake.jpg" class="card-img-top candy-card-img" alt="Premium Chocolate Cake" loading="lazy">
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title fw-bold">Premium Chocolate Cake</h5>
-                                <p class="card-text text-muted mb-4 flex-grow-1">Rich, dark chocolate layers with a velvety cream finish.</p>
-                                <a href="shop.html" class="btn btn-outline-chocolate mt-auto">See in Shop</a>
+            <div class="container text-center py-5">
+                <h2 class="display-4 gradient-text mb-2">Our Specialties</h2>
+                <p class="fs-4 fst-italic hero-tagline text-chocolate mb-5">Handcrafted with love around the clock.</p>
+                <div class="row g-4 text-start">
+                    <div class="col-md-6 col-lg-3" data-animate="fadeInUp" style="animation-delay: 0ms;">
+                        <div class="bm-card d-flex flex-column h-100">
+                            <div class="product-img-ph rounded-top"></div>
+                            <div class="p-4 d-flex flex-column flex-grow-1">
+                                <h5 class="fw-bold fs-4 text-chocolate" style="font-family: var(--font-heading);">Chocolate Cake</h5>
+                                <p class="text-muted mb-4 flex-grow-1" style="font-family: var(--font-body);">Rich, dark chocolate layers with a velvety cream finish.</p>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="badge bg-transparent border border-caramel text-caramel fs-6 rounded-pill px-3 py-2">৳520</span>
+                                </div>
+                                <button onclick="addToCart('p1', 'Chocolate Cake', 520)" class="btn bm-btn-outline w-100 py-2 rounded-pill">Add to Cart</button>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="card h-100 candy-card border-0 shadow-sm">
-                            <img src="images/placeholder-cake.jpg" class="card-img-top candy-card-img" alt="Jaafrani Roshmallai" loading="lazy">
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title fw-bold">Jaafrani Roshmallai</h5>
-                                <p class="card-text text-muted mb-4 flex-grow-1">Authentic creamy dessert infused with pure saffron.</p>
-                                <a href="shop.html" class="btn btn-outline-chocolate mt-auto">See in Shop</a>
+                    <div class="col-md-6 col-lg-3" data-animate="fadeInUp" style="animation-delay: 100ms;">
+                        <div class="bm-card d-flex flex-column h-100">
+                            <div class="product-img-ph rounded-top" style="background: linear-gradient(135deg, var(--color-caramel), var(--color-mint));"></div>
+                            <div class="p-4 d-flex flex-column flex-grow-1">
+                                <h5 class="fw-bold fs-4 text-chocolate" style="font-family: var(--font-heading);">Jaafrani Roshmallai</h5>
+                                <p class="text-muted mb-4 flex-grow-1" style="font-family: var(--font-body);">Authentic creamy dessert infused with pure saffron.</p>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="badge bg-transparent border border-caramel text-caramel fs-6 rounded-pill px-3 py-2">৳380</span>
+                                </div>
+                                <button onclick="addToCart('p2', 'Jaafrani Roshmallai', 380)" class="btn bm-btn-outline w-100 py-2 rounded-pill">Add to Cart</button>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="card h-100 candy-card border-0 shadow-sm">
-                            <img src="images/placeholder-cake.jpg" class="card-img-top candy-card-img" alt="Black Forest with Cherry" loading="lazy">
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title fw-bold">Black Forest with Cherry</h5>
-                                <p class="card-text text-muted mb-4 flex-grow-1">Classic chocolate sponge topped with fresh cherries and cream.</p>
-                                <a href="shop.html" class="btn btn-outline-chocolate mt-auto">See in Shop</a>
+                    <div class="col-md-6 col-lg-3" data-animate="fadeInUp" style="animation-delay: 200ms;">
+                        <div class="bm-card d-flex flex-column h-100">
+                            <div class="product-img-ph rounded-top" style="background: linear-gradient(135deg, var(--color-pink-dark), var(--color-candy-pink));"></div>
+                            <div class="p-4 d-flex flex-column flex-grow-1">
+                                <h5 class="fw-bold fs-4 text-chocolate" style="font-family: var(--font-heading);">Black Forest</h5>
+                                <p class="text-muted mb-4 flex-grow-1" style="font-family: var(--font-body);">Classic chocolate sponge with fresh cherries and cream.</p>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="badge bg-transparent border border-caramel text-caramel fs-6 rounded-pill px-3 py-2">৳600</span>
+                                </div>
+                                <button onclick="addToCart('p3', 'Black Forest', 600)" class="btn bm-btn-outline w-100 py-2 rounded-pill">Add to Cart</button>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="card h-100 candy-card border-0 shadow-sm">
-                            <img src="images/placeholder-cake.jpg" class="card-img-top candy-card-img" alt="Lemon Tea Time Cake" loading="lazy">
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title fw-bold">Lemon Tea Time Cake</h5>
-                                <p class="card-text text-muted mb-4 flex-grow-1">A zesty, refreshing bake perfect for your afternoon tea.</p>
-                                <a href="shop.html" class="btn btn-outline-chocolate mt-auto">See in Shop</a>
+                    <div class="col-md-6 col-lg-3" data-animate="fadeInUp" style="animation-delay: 300ms;">
+                        <div class="bm-card d-flex flex-column h-100">
+                            <div class="product-img-ph rounded-top" style="background: linear-gradient(135deg, var(--color-caramel-light), var(--color-chocolate));"></div>
+                            <div class="p-4 d-flex flex-column flex-grow-1">
+                                <h5 class="fw-bold fs-4 text-chocolate" style="font-family: var(--font-heading);">Lemon Tea Cake</h5>
+                                <p class="text-muted mb-4 flex-grow-1" style="font-family: var(--font-body);">A zesty, refreshing bake perfect for afternoon tea.</p>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="badge bg-transparent border border-caramel text-caramel fs-6 rounded-pill px-3 py-2">৳480</span>
+                                </div>
+                                <button onclick="addToCart('p5', 'Lemon Tea Cake', 480)" class="btn bm-btn-outline w-100 py-2 rounded-pill">Add to Cart</button>
                             </div>
                         </div>
                     </div>
@@ -124,51 +137,51 @@
             </div>
         </section>
 
-        <section class="py-5 gallery-teaser-bg">
-            <div class="container text-center py-4">
-                <h2 class="display-4 fw-bold mb-5 text-white">A Glimpse of Our World</h2>
-                <div class="row g-3">
-                    <div class="col-12 col-md-4">
-                        <div class="gallery-img-wrapper">
-                            <img src="images/placeholder-gallery.jpg" class="img-fluid rounded w-100 h-100 gallery-img" alt="Baking process" loading="lazy">
-                        </div>
+        <div style="line-height:0; background-color: var(--color-chocolate);">
+            <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="display: block; width: 100%; height: 60px; transform: scaleY(-1);">
+                <path d="M0,60 V10 Q50,60 100,10 Q150,50 200,5 Q250,55 300,15 Q350,45 400,0 Q450,60 500,20 Q550,50 600,10 Q650,55 700,5 Q750,45 800,15 Q850,60 900,10 Q950,50 1000,5 Q1050,45 1100,20 Q1150,55 1200,0 V60 Z" fill="var(--color-cream)"></path>
+            </svg>
+        </div>
+
+        <section class="py-5" style="background-color: var(--color-chocolate);">
+            <div class="container text-center py-5">
+                <h2 class="display-4 fw-bold mb-5" style="color: var(--color-cream); font-family: var(--font-heading);">A Taste of Our World</h2>
+                <div class="taste-grid text-start">
+                    <div class="taste-tile shadow-sm" data-animate="fadeInUp" style="animation-delay: 0ms;">
+                        <img src="images/placeholder-gallery.jpg" alt="Gallery preview" loading="lazy">
                     </div>
-                    <div class="col-12 col-md-4">
-                        <div class="gallery-img-wrapper">
-                            <img src="images/placeholder-gallery.jpg" class="img-fluid rounded w-100 h-100 gallery-img" alt="Fresh ingredients" loading="lazy">
-                        </div>
+                    <div class="taste-tile shadow-sm" data-animate="fadeInUp" style="animation-delay: 100ms;">
+                        <img src="images/placeholder-gallery.jpg" alt="Gallery preview" loading="lazy">
                     </div>
-                    <div class="col-12 col-md-4">
-                        <div class="gallery-img-wrapper">
-                            <img src="images/placeholder-gallery.jpg" class="img-fluid rounded w-100 h-100 gallery-img" alt="Finished pastries" loading="lazy">
-                        </div>
+                    <div class="taste-tile shadow-sm" data-animate="fadeInUp" style="animation-delay: 200ms;">
+                        <img src="images/placeholder-gallery.jpg" alt="Gallery preview" loading="lazy">
                     </div>
-                    <div class="col-12 col-md-4">
-                        <div class="gallery-img-wrapper">
-                            <img src="images/placeholder-gallery.jpg" class="img-fluid rounded w-100 h-100 gallery-img" alt="Happy customers" loading="lazy">
-                        </div>
+                    <div class="taste-tile shadow-sm" data-animate="fadeInUp" style="animation-delay: 300ms;">
+                        <img src="images/placeholder-gallery.jpg" alt="Gallery preview" loading="lazy">
                     </div>
-                    <div class="col-12 col-md-4">
-                        <div class="gallery-img-wrapper">
-                            <img src="images/placeholder-gallery.jpg" class="img-fluid rounded w-100 h-100 gallery-img" alt="Cake decorating" loading="lazy">
-                        </div>
+                    <div class="taste-tile shadow-sm" data-animate="fadeInUp" style="animation-delay: 400ms;">
+                        <img src="images/placeholder-gallery.jpg" alt="Gallery preview" loading="lazy">
                     </div>
-                    <div class="col-12 col-md-4">
-                        <div class="gallery-img-wrapper">
-                            <img src="images/placeholder-gallery.jpg" class="img-fluid rounded w-100 h-100 gallery-img" alt="Signature desserts" loading="lazy">
-                        </div>
+                    <div class="taste-tile shadow-sm" data-animate="fadeInUp" style="animation-delay: 500ms;">
+                        <img src="images/placeholder-gallery.jpg" alt="Gallery preview" loading="lazy">
                     </div>
-                </div>
-                <div class="mt-5">
-                    <a href="gallery.html" class="btn btn-candy-pulse px-5 py-3 rounded-pill fw-bold text-uppercase shadow">View Full Gallery</a>
                 </div>
             </div>
         </section>
 
-        <section class="cta-banner py-5 text-center text-white">
-            <div class="container py-5">
-                <h2 class="display-3 fw-bold mb-4">Ready to Order?</h2>
-                <a href="shop.html" class="btn btn-candy-pulse btn-lg px-5 py-3 rounded-pill fw-bold text-uppercase shadow-lg">Visit the Shop</a>
+        <section class="cta-banner-new">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-8 text-center text-md-start mb-4 mb-md-0" data-animate="fadeInUp" style="animation-delay: 0ms;">
+                        <h2 class="display-3 mb-0 text-white" style="font-family: var(--font-heading); text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Craving something sweet?</h2>
+                    </div>
+                    <div class="col-md-4 text-center text-md-end" data-animate="fadeInUp" style="animation-delay: 150ms;">
+                        <div class="d-inline-block position-relative">
+                            <div class="position-absolute top-50 start-50 translate-middle w-100 h-100 rounded-pill" style="background-color: var(--color-candy-pink); animation: pulse-ring 2s infinite; z-index: 0;"></div>
+                            <a href="shop.html" class="btn bm-btn-primary btn-lg px-5 py-3 rounded-pill fw-bold fs-5 shadow position-relative z-1">Shop Now &rarr;</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
