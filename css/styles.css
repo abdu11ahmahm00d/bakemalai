@@ -655,25 +655,16 @@ footer p {
 .badge-ribbon {
   position: absolute;
   top: 15px;
-  left: -8px;
+  right: 15px;
   background-color: var(--color-caramel);
   color: var(--color-chocolate);
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 0.85rem;
-  padding: 4px 12px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  font-size: 0.8rem;
+  padding: 5px 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   z-index: 2;
-  border-radius: 0 4px 4px 0;
-}
-
-.badge-ribbon::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 0;
-  border-top: 8px solid #A87000;
-  border-left: 8px solid transparent;
+  border-radius: 50px;
 }
 
 .pulse-ring-active {
