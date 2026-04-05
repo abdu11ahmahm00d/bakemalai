@@ -1,6 +1,3 @@
-// Netlify serverless function — Groq proxy for Kiki chatbot
-// API key is read from process.env.GROQ_API_KEY (never hardcoded)
-
 const GROQ_ENDPOINT = "https://api.groq.com/openai/v1/chat/completions";
 const MODEL = "llama3-8b-8192";
 
@@ -11,18 +8,16 @@ const SYSTEM_PROMPT =
   "Never discuss politics, personal matters, or unrelated topics.";
 
 const CORS_HEADERS = {
-  "Access-Control-Allow-Origin": "*",   // tighten to your Netlify domain in production
+  "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "Content-Type",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
 
 exports.handler = async (event) => {
-  // Handle CORS preflight
   if (event.httpMethod === "OPTIONS") {
     return { statusCode: 204, headers: CORS_HEADERS, body: "" };
   }
 
-  // Only accept POST
   if (event.httpMethod !== "POST") {
     return {
       statusCode: 405,
@@ -31,7 +26,6 @@ exports.handler = async (event) => {
     };
   }
 
-  // Validate API key exists
   const apiKey = process.env.GROQ_API_KEY;
   if (!apiKey) {
     return {
@@ -41,7 +35,6 @@ exports.handler = async (event) => {
     };
   }
 
-  // Parse request body
   let userMessage;
   try {
     const body = JSON.parse(event.body);
@@ -62,7 +55,6 @@ exports.handler = async (event) => {
     };
   }
 
-  // Call Groq API
   try {
     const response = await fetch(GROQ_ENDPOINT, {
       method: "POST",
@@ -83,7 +75,7 @@ exports.handler = async (event) => {
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error("Groq API error:", response.status, errorText);
+      console.error(response.status, errorText);
       return {
         statusCode: 502,
         headers: CORS_HEADERS,
@@ -112,7 +104,7 @@ exports.handler = async (event) => {
       body: JSON.stringify({ reply }),
     };
   } catch (err) {
-    console.error("Function error:", err);
+    console.error(err);
     return {
       statusCode: 500,
       headers: CORS_HEADERS,

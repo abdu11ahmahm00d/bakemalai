@@ -1,10 +1,8 @@
 const chatbotHTML = `
-<!-- Chatbot Floating Button -->
 <div class="chatbot-floating-btn shadow" onclick="toggleChatbot()" title="Chat with Kiki">
     🧁
 </div>
 
-<!-- Chatbot Panel -->
 <div class="chatbot-panel" id="chatbotPanel">
     <div class="chatbot-header d-flex justify-content-between align-items-center p-3">
         <h5 class="m-0 fw-bold">Chat with Kiki 🍰</h5>
@@ -24,7 +22,6 @@ const chatbotHTML = `
 </div>
 `;
 
-// Inject Chatbot UI on page load
 document.addEventListener('DOMContentLoaded', () => {
     document.body.insertAdjacentHTML('beforeend', chatbotHTML);
 });
@@ -49,7 +46,6 @@ function sendMessage() {
     
     const body = document.getElementById('chatbotBody');
     
-    // Add user message to UI securely using textContent
     const userBubble = document.createElement('div');
     userBubble.className = 'chat-bubble user-bubble';
     userBubble.textContent = msg;
@@ -58,14 +54,12 @@ function sendMessage() {
     input.value = '';
     body.scrollTop = body.scrollHeight;
     
-    // Add typing indicator
     const typingIndicator = document.createElement('div');
     typingIndicator.className = 'chat-bubble kiki-bubble text-muted';
     typingIndicator.innerHTML = '<em>Kiki is thinking... 🍩</em>';
     body.appendChild(typingIndicator);
     body.scrollTop = body.scrollHeight;
     
-    // Call Netlify Function
     fetch('/.netlify/functions/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -73,7 +67,6 @@ function sendMessage() {
     })
     .then(response => response.json())
     .then(data => {
-        // Remove typing indicator
         if (typingIndicator.parentNode) {
             typingIndicator.parentNode.removeChild(typingIndicator);
         }
@@ -86,13 +79,12 @@ function sendMessage() {
         } else {
             kikiBubble.textContent = "Oops, Kiki is taking a cake break 🎂 Try again shortly!";
             kikiBubble.classList.add('text-danger');
-            console.error("Chatbot response error", data);
+            console.error(data);
         }
         body.appendChild(kikiBubble);
         body.scrollTop = body.scrollHeight;
     })
     .catch(err => {
-        // Remove typing indicator
         if (typingIndicator.parentNode) {
             typingIndicator.parentNode.removeChild(typingIndicator);
         }
@@ -102,7 +94,7 @@ function sendMessage() {
         errorBubble.textContent = "Oops, Kiki is taking a cake break 🎂 Try again shortly!";
         body.appendChild(errorBubble);
 
-        console.error("Fetch error", err);
+        console.error(err);
         body.scrollTop = body.scrollHeight;
     });
 }

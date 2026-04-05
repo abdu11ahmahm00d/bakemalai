@@ -1,9 +1,7 @@
-/* Willy Wonka Global Theme - Base inlined in HTML <head> */
 h1, h2, h3, h4, h5, h6, .navbar-brand {
   font-family: var(--font-heading);
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 14px;
 }
@@ -15,10 +13,9 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
 ::-webkit-scrollbar-thumb {
   background-color: var(--color-caramel);
   border-radius: 7px;
-  border: 3px solid var(--color-chocolate); /* matches track background to simulate padding */
+  border: 3px solid var(--color-chocolate);
 }
 
-/* Base Nav Overrides */
 .navbar.bg-dark {
   background-color: var(--color-chocolate) !important;
   border-bottom: 2px solid var(--color-caramel);
@@ -53,7 +50,6 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
   filter: invert(65%) sepia(85%) saturate(1000%) hue-rotate(1deg) brightness(105%) contrast(100%);
 }
 
-/* Footer Overrides */
 footer.bg-light {
   background-color: var(--color-chocolate) !important;
   color: var(--color-cream) !important;
@@ -64,7 +60,6 @@ footer p {
   color: var(--color-cream) !important;
 }
 
-/* --- Hero Section --- */
 .hero-section {
   min-height: 100vh;
   background-color: var(--color-chocolate);
@@ -78,7 +73,7 @@ footer p {
 }
 
 .hero-bg-overlay {
-  background-color: rgba(59, 26, 8, 0.65); /* Dark chocolate overlay */
+  background-color: rgba(59, 26, 8, 0.65);
   z-index: 1;
 }
 
@@ -94,7 +89,6 @@ footer p {
   text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
-/* --- Button & Pulse Animation --- */
 .btn-candy-pulse {
   background-color: var(--color-candy-pink);
   color: var(--color-cream) !important;
@@ -125,7 +119,6 @@ footer p {
   }
 }
 
-/* --- Home Page Sections --- */
 .specialties-bg {
   background-color: var(--color-cream);
 }
@@ -211,7 +204,6 @@ footer p {
   color: var(--color-caramel) !important;
 }
 
-/* --- Cart & Offcanvas --- */
 .cart-floating-btn {
   position: fixed;
   bottom: 30px;
@@ -252,7 +244,6 @@ footer p {
   border-color: var(--color-caramel) !important;
 }
 
-/* --- Masonry Gallery --- */
 .masonry-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -288,7 +279,6 @@ footer p {
   box-shadow: 0 8px 15px rgba(0,0,0,0.15);
 }
 
-/* --- About Utilities --- */
 .text-candy-pink {
   color: var(--color-candy-pink) !important;
 }
@@ -308,7 +298,6 @@ footer p {
   );
 }
 
-/* --- Kiki Chatbot --- */
 .chatbot-floating-btn {
   position: fixed;
   bottom: 110px;

@@ -1,4 +1,3 @@
-// Cart logic for Bakemalai
 let cart = JSON.parse(localStorage.getItem('bakemalai_cart')) || [];
 
 function saveCart() {
@@ -15,7 +14,6 @@ function addToCart(id, name, price) {
     }
     saveCart();
     
-    // Auto-open offcanvas on add
     const offcanvasEl = document.getElementById('cartOffcanvas');
     if (offcanvasEl && typeof bootstrap !== "undefined") {
         const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvasEl) || new bootstrap.Offcanvas(offcanvasEl);
@@ -55,27 +53,23 @@ function confirmOrder() {
         return;
     }
     
-    // Build human-readable order summary
     let orderSummary = "Hello Bakemalai! I want to place an order:\n\n";
     cart.forEach(item => {
         orderSummary += `- ${item.name} (x${item.quantity}) = ৳${item.price * item.quantity}\n`;
     });
     orderSummary += `\n*Grand Total: ৳${getCartTotal()}*`;
 
-    // Order sent via WhatsApp click-to-chat. No payment gateway integrated.
     const waUrl = "https://wa.me/8801837138483?text=" + encodeURIComponent(orderSummary);
     window.open(waUrl, '_blank');
 
     clearCart();
     
-    // Hide offcanvas
     const offcanvasEl = document.getElementById('cartOffcanvas');
     if (offcanvasEl && typeof bootstrap !== "undefined") {
         const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvasEl);
         if (bsOffcanvas) bsOffcanvas.hide();
     }
     
-    // Show toast notification
     let toastContainer = document.getElementById('toastWrapper');
     if (!toastContainer) {
         toastContainer = document.createElement('div');
@@ -138,7 +132,6 @@ function renderCart() {
     });
 }
 
-// Initial render
 document.addEventListener('DOMContentLoaded', () => {
     renderCart();
 });
