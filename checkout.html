@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Checkout your Bakemalai sweets order securely.">
+    <title>Bakemalai - Checkout</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Bakemalai</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Ami ke?</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5 mt-5">
+        <h1 class="display-4 fw-bold text-center mb-5 gradient-text">Checkout</h1>
+        
+        <div class="row g-4">
+            <div class="col-lg-7">
+                <div class="bm-card p-4 shadow-sm border-0 bg-white">
+                    <h3 class="fw-bold mb-4 text-chocolate" style="font-family: var(--font-heading);">Shipping Details</h3>
+                    <form id="checkoutForm" novalidate>
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label fw-bold text-chocolate">Full Name</label>
+                            <input type="text" class="form-control form-control-lg border-caramel is-focus-candy" id="fullName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label fw-bold text-chocolate">Phone Number</label>
+                            <input type="tel" class="form-control form-control-lg border-caramel" id="phone" placeholder="01XXXXXXXXX" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label fw-bold text-chocolate">Delivery Address</label>
+                            <textarea class="form-control border-caramel" id="address" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label for="city" class="form-label fw-bold text-chocolate">City</label>
+                            <input type="text" class="form-control form-control-lg border-caramel" id="city" required>
+                        </div>
+
+                        <hr class="my-4 border-caramel">
+
+                        <h3 class="fw-bold mb-3 text-chocolate" style="font-family: var(--font-heading);">Payment Method</h3>
+                        <div class="row g-3 mb-3">
+                            <div class="col-sm-6">
+                                <label class="radio-card w-100 h-100">
+                                    <input type="radio" name="paymentMethod" value="cod" class="d-none" required>
+                                    <div class="card card-body text-center shadow-sm h-100 border-2 rounded-3 radio-card-inner">
+                                        <h5 class="fw-bold m-0 py-2">💵 Cash on Delivery</h5>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="radio-card w-100 h-100">
+                                    <input type="radio" name="paymentMethod" value="bkash" class="d-none" required>
+                                    <div class="card card-body text-center shadow-sm h-100 border-2 rounded-3 radio-card-inner">
+                                        <h5 class="fw-bold m-0 py-2">📱 Bkash</h5>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div id="bkashSection" class="smooth-collapse">
+                            <div class="p-3 mb-3 rounded border border-info bg-light">
+                                <p class="mb-0 fw-bold text-secondary text-center">
+                                    Please send <span class="text-primary font-monospace fs-5">৳<span id="bkashTotalDisplay">0</span></span> to <strong class="text-dark">01837138483</strong> and include your transaction ID below.
+                                </p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="txnId" class="form-label fw-bold py-1">Transaction ID</label>
+                                <input type="text" class="form-control form-control-lg border-caramel" id="txnId" placeholder="e.g. 7X8A9Z2B">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="bm-card p-4 shadow-sm border-0 bg-white sticky-top" style="top: 100px;">
+                    <h3 class="fw-bold mb-4 text-chocolate" style="font-family: var(--font-heading);">Order Summary</h3>
+                    <div id="checkoutSummaryContainer" class="mb-4">
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-4 pt-3 border-top border-caramel">
+                        <span class="fs-4 fw-bold text-chocolate" style="font-family: var(--font-heading);">Grand Total</span>
+                        <span class="fs-4 fw-bold text-candy-pink" style="font-family: var(--font-heading);">৳<span id="checkoutGrandTotal">0</span></span>
+                    </div>
+                    <button id="confirmOrderBtn" class="btn bm-btn-primary btn-lg w-100 rounded-pill py-3 fw-bold fs-5 shadow" style="display: none;" onclick="submitOrder()">Confirm Order</button>
+                    <p id="formHelpText" class="text-center text-muted mt-3 small fw-bold">Please complete all required fields to proceed.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-4 mt-5 bg-dark text-center border-top">
+        <div class="container">
+            <p class="mb-1 text-light">&copy; 2026 Bakemalai - bringing sweets to life</p>
+        </div>
+    </footer>
+
+    <script src="js/checkout.js"></script>
+</body>
+</html>

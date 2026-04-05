@@ -675,3 +675,34 @@ footer p {
   pointer-events: none;
   animation: confetti-pop 0.7s forwards cubic-bezier(0.25, 1, 0.5, 1);
 }
+
+.radio-card {
+  cursor: pointer;
+}
+
+.radio-card .radio-card-inner {
+  border-color: #ddd;
+  transition: all 0.2s ease-in-out;
+  background-color: var(--color-cream);
+  color: var(--color-chocolate);
+}
+
+.radio-card input:checked + .radio-card-inner {
+  border-color: var(--color-caramel);
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(200, 134, 10, 0.3);
+  color: var(--color-caramel);
+}
+
+.smooth-collapse {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+  opacity: 0;
+}
+
+.smooth-collapse.expanded {
+  max-height: 500px;
+  transition: max-height 0.4s ease-in-out;
+  opacity: 1;
+}
