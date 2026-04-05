@@ -13,6 +13,36 @@ function addToCart(id, name, price) {
         cart.push({ id, name, price, quantity: 1 });
     }
     saveCart();
+
+    if (window.event) {
+        const e = window.event;
+        const rect = e.target.getBoundingClientRect();
+        const startX = rect.left + rect.width / 2;
+        const startY = rect.top + rect.height / 2;
+        
+        const colors = ['#C8860A', '#E84393', '#4CAF82', '#3B1A08', '#FFF8F0'];
+        for (let i = 0; i < 6; i++) {
+            const confetti = document.createElement('span');
+            confetti.classList.add('confetti');
+            confetti.style.left = startX + 'px';
+            confetti.style.top = startY + 'px';
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            
+            const tx = (Math.random() - 0.5) * 100 + 'px';
+            const ty = (Math.random() - 1) * 80 + 'px';
+            confetti.style.setProperty('--tx', tx);
+            confetti.style.setProperty('--ty', ty);
+            
+            document.body.appendChild(confetti);
+            setTimeout(() => confetti.remove(), 700);
+        }
+    }
+
+    const badge = document.getElementById('cartBadge');
+    if (badge) {
+        badge.classList.add('pulse-ring-active');
+        setTimeout(() => badge.classList.remove('pulse-ring-active'), 800);
+    }
     
     const offcanvasEl = document.getElementById('cartOffcanvas');
     if (offcanvasEl && typeof bootstrap !== "undefined") {

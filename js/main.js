@@ -54,15 +54,15 @@ document.addEventListener('DOMContentLoaded', () => {
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 filterBtns.forEach(b => {
-                    b.classList.remove('btn-candy-pulse', 'active');
-                    if (!b.classList.contains('btn-outline-chocolate')) {
-                        b.classList.add('btn-outline-chocolate');
-                    }
+                    b.style.backgroundColor = 'var(--color-caramel)';
+                    b.style.color = '#fff';
+                    b.classList.remove('active');
                 });
-                btn.classList.add('btn-candy-pulse', 'active');
-                btn.classList.remove('btn-outline-chocolate');
+                btn.style.backgroundColor = 'var(--color-candy-pink)';
+                btn.style.color = '#fff';
+                btn.classList.add('active');
 
-                const filterValue = btn.getAttribute('data-filter');
+                const filterValue = btn.getAttribute('data-category');
 
                 galleryItems.forEach(item => {
                     if (filterValue === 'all') {
@@ -79,18 +79,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const grid = document.querySelector('.masonry-gallery');
+
     function resizeMasonryItem(item) {
-        const grid = document.querySelector('.masonry-gallery');
         if (!grid) return;
-        
-        const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap')) || 15;
-        const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows')) || 10;
+        const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap')) || 8;
+        const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows')) || 8;
         
         const img = item.querySelector('img');
         if (!img) return;
 
         let contentHeight = img.getBoundingClientRect().height;
-        if(contentHeight === 0) contentHeight = 250 + Math.floor(Math.random() * 150);
+        if(contentHeight === 0) contentHeight = 250;
 
         const rowSpan = Math.ceil((contentHeight + rowGap) / (rowHeight + rowGap));
         item.style.gridRowEnd = 'span ' + rowSpan;
@@ -101,9 +101,11 @@ document.addEventListener('DOMContentLoaded', () => {
         allItems.forEach(resizeMasonryItem);
     }
     
-    const masonryGallery = document.querySelector('.masonry-gallery');
-    if (masonryGallery) {
-        window.addEventListener('resize', resizeAllMasonryItems);
+    if (grid) {
+        const masonryObserver = new ResizeObserver(() => {
+            resizeAllMasonryItems();
+        });
+        masonryObserver.observe(grid);
         
         const allImgs = document.querySelectorAll('.masonry-item img');
         allImgs.forEach(img => {

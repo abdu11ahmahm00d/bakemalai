@@ -41,53 +41,54 @@
         <p class="lead text-center mb-5">Glimpses of our handcrafted delicacies and sweet moments.</p>
 
         <div class="d-flex justify-content-center flex-wrap gap-2 mb-5 filter-btn-group">
-            <button class="btn btn-candy-pulse active" data-filter="all">All</button>
-            <button class="btn btn-outline-chocolate" data-filter="chocolate">Chocolate</button>
-            <button class="btn btn-outline-chocolate" data-filter="black-forest">Black Forest</button>
-            <button class="btn btn-outline-chocolate" data-filter="special">Special</button>
+            <button class="btn rounded-pill active px-4 py-2 shadow-sm" data-category="all" style="background-color: var(--color-candy-pink); color: #fff; border: none; font-weight: bold;">All</button>
+            <button class="btn rounded-pill px-4 py-2 shadow-sm" data-category="chocolate" style="background-color: var(--color-caramel); color: #fff; border: none; font-weight: bold;">Chocolate</button>
+            <button class="btn rounded-pill px-4 py-2 shadow-sm" data-category="black-forest" style="background-color: var(--color-caramel); color: #fff; border: none; font-weight: bold;">Black Forest</button>
+            <button class="btn rounded-pill px-4 py-2 shadow-sm" data-category="special" style="background-color: var(--color-caramel); color: #fff; border: none; font-weight: bold;">Special</button>
         </div>
 
-        <div class="masonry-gallery">
-            <div class="masonry-item item-chocolate">
+        <div class="masonry-gallery" style="grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); grid-auto-rows: 8px;">
+            <div class="masonry-item item-chocolate" data-animate="fadeInUp">
                 <img src="images/placeholder-gallery.jpg" loading="lazy" alt="Rich chocolate cake layers" class="img-fluid bg-light">
             </div>
-            <div class="masonry-item item-black-forest">
+            <div class="masonry-item item-black-forest" data-animate="fadeInUp" style="animation-delay: 50ms;">
                 <img src="images/placeholder-gallery.jpg" loading="lazy" alt="Black forest slice with cherry" class="img-fluid bg-light">
             </div>
-            <div class="masonry-item item-special">
+            <div class="masonry-item item-special" data-animate="fadeInUp" style="animation-delay: 100ms;">
                 <img src="images/placeholder-gallery.jpg" loading="lazy" alt="Jaafrani Roshmallai dessert bowl" class="img-fluid bg-light">
             </div>
-            <div class="masonry-item item-chocolate">
+            <div class="masonry-item item-chocolate" data-animate="fadeInUp" style="animation-delay: 150ms;">
                 <img src="images/placeholder-gallery.jpg" loading="lazy" alt="Chocolate fudge cupcakes" class="img-fluid bg-light">
             </div>
-            <div class="masonry-item item-black-forest">
+            <div class="masonry-item item-black-forest" data-animate="fadeInUp" style="animation-delay: 200ms;">
                 <img src="images/placeholder-gallery.jpg" loading="lazy" alt="Whole black forest cake" class="img-fluid bg-light">
             </div>
-            <div class="masonry-item item-special">
+            <div class="masonry-item item-special" data-animate="fadeInUp" style="animation-delay: 250ms;">
                 <img src="images/placeholder-gallery.jpg" loading="lazy" alt="Lemon tea time cake" class="img-fluid bg-light">
             </div>
-            <div class="masonry-item item-chocolate">
+            <div class="masonry-item item-chocolate" data-animate="fadeInUp" style="animation-delay: 300ms;">
                 <img src="images/placeholder-gallery.jpg" loading="lazy" alt="Chocolate tub cake being served" class="img-fluid bg-light">
             </div>
-            <div class="masonry-item item-special">
+            <div class="masonry-item item-special" data-animate="fadeInUp" style="animation-delay: 350ms;">
                 <img src="images/placeholder-gallery.jpg" loading="lazy" alt="Special customized premium cake" class="img-fluid bg-light">
             </div>
-            <div class="masonry-item item-black-forest">
+            <div class="masonry-item item-black-forest" data-animate="fadeInUp" style="animation-delay: 400ms;">
                 <img src="images/placeholder-gallery.jpg" loading="lazy" alt="Cherry topped black forest pastry" class="img-fluid bg-light">
             </div>
-            <div class="masonry-item item-chocolate">
+            <div class="masonry-item item-chocolate" data-animate="fadeInUp" style="animation-delay: 450ms;">
                 <img src="images/placeholder-gallery.jpg" loading="lazy" alt="Moist chocolate cake piece" class="img-fluid bg-light">
             </div>
-            <div class="masonry-item item-special">
+            <div class="masonry-item item-special" data-animate="fadeInUp" style="animation-delay: 500ms;">
                 <img src="images/placeholder-gallery.jpg" loading="lazy" alt="Gift box of mixed Bakemalai sweets" class="img-fluid bg-light">
             </div>
-            <div class="masonry-item item-chocolate">
+            <div class="masonry-item item-chocolate" data-animate="fadeInUp" style="animation-delay: 550ms;">
                 <img src="images/placeholder-gallery.jpg" loading="lazy" alt="Dark chocolate brownie" class="img-fluid bg-light">
             </div>
         </div>
 
-        <div class="text-center mt-5 pt-4 border-top border-caramel">
-            <h4 class="fw-bold text-chocolate mb-3">Want something custom? Chat with Kiki below!</h4>
+        <div class="text-center mt-5 p-5 text-white rounded-3 shadow" style="background: linear-gradient(135deg, var(--color-chocolate), var(--color-caramel));" data-animate="fadeInUp">
+            <h3 class="fw-bold mb-3" style="font-family: var(--font-heading);">Want something custom? Chat with Kiki 🧁</h3>
+            <button class="btn bm-btn-primary rounded-pill px-4 py-2 shadow-lg mt-2" onclick="document.querySelector('.chatbot-floating-btn').click();">Start Chat</button>
         </div>
     </main>
 
