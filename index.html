@@ -36,18 +36,46 @@
         </div>
     </nav>
 
-    <header class="hero-section position-relative d-flex align-items-center justify-content-center text-center">
-        <div class="hero-bg-overlay position-absolute w-100 h-100 top-0 start-0"></div>
-        <img src="images/hero-placeholder.jpg" alt="Bakemalai Sweets" class="hero-bg-img position-absolute w-100 h-100 top-0 start-0" loading="lazy">
-        
-        <div class="container position-relative z-1 text-white px-4">
-            <h1 class="display-1 fw-bold mb-3 hero-title">Bakemalai</h1>
-            <p class="fs-2 fst-italic mb-5 hero-subtitle">bringing sweets to life</p>
-            <a href="shop.html" class="btn btn-candy-pulse btn-lg px-5 py-3 rounded-pill fw-bold text-uppercase">Order Now</a>
-        </div>
-    </header>
-
     <main>
+        <section class="hero-wrapper position-relative">
+            <!-- Sugar Particles -->
+            <span class="sugar-particle" style="width:10px; height:10px; background:var(--color-candy-pink); top:15%; left:20%; animation: float 3s ease-in-out infinite alternate;"></span>
+            <span class="sugar-particle" style="width:6px; height:6px; background:var(--color-caramel); top:35%; left:40%; animation: float 2.5s ease-in-out infinite alternate 0.5s;"></span>
+            <span class="sugar-particle" style="width:8px; height:8px; background:var(--color-candy-pink); top:10%; right:25%; animation: float 4s ease-in-out infinite alternate 1s;"></span>
+            <span class="sugar-particle" style="width:5px; height:5px; background:var(--color-caramel); top:50%; left:10%; animation: float 3.5s ease-in-out infinite alternate 1.5s;"></span>
+            <span class="sugar-particle" style="width:9px; height:9px; background:var(--color-candy-pink); bottom:25%; right:15%; animation: float 3s ease-in-out infinite alternate 0.8s;"></span>
+            <span class="sugar-particle" style="width:7px; height:7px; background:var(--color-caramel); bottom:40%; left:30%; animation: float 2.8s ease-in-out infinite alternate 1.2s;"></span>
+            <span class="sugar-particle" style="width:10px; height:10px; background:var(--color-candy-pink); top:60%; right:35%; animation: float 4.2s ease-in-out infinite alternate 0.2s;"></span>
+            <span class="sugar-particle" style="width:4px; height:4px; background:var(--color-caramel); bottom:15%; left:50%; animation: float 2.5s ease-in-out infinite alternate 2s;"></span>
+
+            <div class="container position-relative z-1 h-100 py-5">
+                <div class="row h-100 align-items-center mb-5">
+                    <!-- Left Column (55%) -->
+                    <div class="col-lg-7" data-animate="fadeInUp">
+                        <h1 class="display-1 fw-bold mb-3 gradient-text">Bakemalai</h1>
+                        <p class="fs-2 mb-4 hero-tagline">bringing sweets to life</p>
+                        <p class="hero-stats mb-5">✨ 25+ Happy Customers &middot; 🍫 Made Fresh Daily &middot; 📍 CEPZ, Chittagong</p>
+                        <div class="d-flex gap-3">
+                            <a href="shop.html" class="btn bm-btn-primary btn-lg px-4 py-2 rounded-pill shadow border-0">Order Now</a>
+                            <a href="about.html" class="btn bm-btn-outline btn-lg px-4 py-2 rounded-pill shadow-sm">Our Story</a>
+                        </div>
+                    </div>
+                    <!-- Right Column (45%) -->
+                    <div class="col-lg-5 mt-5 mt-lg-0 text-center" data-animate="fadeInUp">
+                        <div class="hero-cake-circle shadow-lg text-center d-flex align-items-center justify-content-center">
+                            <span class="fs-1">🍰</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SVG Wave -->
+            <div class="hero-wave">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V120H0Z"></path>
+                </svg>
+            </div>
+        </section>
         <section class="py-5 specialties-bg">
             <div class="container text-center py-4">
                 <h2 class="display-4 fw-bold mb-5 specialty-title">Our Specialties</h2>
