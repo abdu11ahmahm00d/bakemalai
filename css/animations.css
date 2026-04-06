@@ -3,9 +3,40 @@
   100% { transform: translateX(100%); }
 }
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
-  100% { transform: translateY(0px); }
+  0%   { transform: translateY(0px) translateX(0px); }
+  25%  { transform: translateY(-12px) translateX(6px); }
+  50%  { transform: translateY(-6px) translateX(-4px); }
+  75%  { transform: translateY(-18px) translateX(3px); }
+  100% { transform: translateY(0px) translateX(0px); }
+}
+@keyframes floatDrift {
+  0%   { transform: translateY(0) translateX(0) rotate(0deg); }
+  20%  { transform: translateY(-20px) translateX(12px) rotate(45deg); }
+  40%  { transform: translateY(-10px) translateX(-8px) rotate(90deg); }
+  60%  { transform: translateY(-28px) translateX(5px) rotate(180deg); }
+  80%  { transform: translateY(-15px) translateX(-10px) rotate(270deg); }
+  100% { transform: translateY(0) translateX(0) rotate(360deg); }
+}
+@keyframes floatWave {
+  0%   { transform: translateY(0) translateX(0) scale(1); }
+  33%  { transform: translateY(-22px) translateX(14px) scale(1.2); }
+  66%  { transform: translateY(-8px) translateX(-10px) scale(0.85); }
+  100% { transform: translateY(0) translateX(0) scale(1); }
+}
+@keyframes floatOrbit {
+  0%   { transform: translateX(0) translateY(0); }
+  25%  { transform: translateX(16px) translateY(-20px); }
+  50%  { transform: translateX(0) translateY(-32px); }
+  75%  { transform: translateX(-16px) translateY(-20px); }
+  100% { transform: translateX(0) translateY(0); }
+}
+@keyframes floatZigzag {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  20%  { transform: translate(12px, -15px) rotate(30deg); }
+  40%  { transform: translate(-8px, -25px) rotate(-20deg); }
+  60%  { transform: translate(16px, -18px) rotate(45deg); }
+  80%  { transform: translate(-5px, -8px) rotate(-10deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
 }
 @keyframes pulse-ring {
   0% { transform: scale(0.8); opacity: 0.5; }
