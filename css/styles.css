@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 :root {
-  --color-chocolate: #3B1A08;
-  --color-caramel: #C8860A;
-  --color-candy-pink: #E84393;
-  --color-cream: #FFF8F0;
-  --color-mint: #4CAF82;
-  --color-dark-glass: rgba(59,26,8,0.85);
-  --color-caramel-light: #F0A830;
-  --color-pink-dark: #C4307A;
+  --color-chocolate: #64493F;
+  --color-caramel: #A37E6F;
+  --color-candy-pink: #CC9180;
+  --color-cream: #FAF3EE;
+  --color-mint: #8D9F8D;
+  --color-dark-glass: rgba(100, 73, 63, 0.85);
+  --color-caramel-light: #B89A8E;
+  --color-pink-dark: #A87161;
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
