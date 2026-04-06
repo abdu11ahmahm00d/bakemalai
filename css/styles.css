@@ -105,10 +105,25 @@ h2, h3, h4, h5, h6 {
 }
 
 .navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   color: var(--color-cream) !important;
   font-size: 1.8rem;
   letter-spacing: 2px;
   text-shadow: 2px 2px 0 var(--color-caramel);
+}
+
+.nav-logo {
+  height: 48px;
+  width: auto;
+  filter: drop-shadow(2px 2px 0 var(--color-caramel));
+}
+
+.hero-logo {
+  max-width: 280px;
+  margin-bottom: 25px;
+  filter: drop-shadow(4px 4px 10px rgba(0,0,0,0.3));
 }
 
 .navbar-dark .navbar-nav .nav-link {

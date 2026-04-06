@@ -17,9 +17,18 @@
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body style="background: linear-gradient(135deg, var(--color-chocolate), #2A1205); min-height: 100vh; display: flex; align-items: center; justify-content: center;">
+<body style="background: linear-gradient(135deg, var(--color-chocolate), #2A1205); min-height: 100vh;">
 
-    <main class="container text-center py-5">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="Bakemalai Logo" class="nav-logo">
+                Bakemalai
+            </a>
+        </div>
+    </nav>
+
+    <main class="container text-center py-5 d-flex flex-column align-items-center justify-content-center" style="min-height: calc(100vh - 80px);">
         <svg class="checkmark-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
             <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
             <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
