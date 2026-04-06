@@ -206,15 +206,13 @@ footer p {
 .hero-tagline {
   font-family: var(--font-subheading);
   font-style: italic;
-  color: var(--color-cream);
+  color: var(--color-caramel);
 }
 
 .hero-stats {
   font-family: var(--font-body);
-  font-style: italic;
-  font-size: 0.9rem;
-  color: var(--color-cream);
-  opacity: 0.8;
+  font-size: 0.95rem;
+  color: var(--color-caramel);
 }
 
 .hero-cake-circle {
