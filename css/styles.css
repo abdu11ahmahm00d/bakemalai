@@ -216,15 +216,27 @@ footer p {
 }
 
 .hero-cake-circle {
-  width: 360px;
-  height: 360px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
-  border: 4px solid var(--color-caramel);
-  animation: float 4s ease-in-out infinite;
-  background: linear-gradient(135deg, var(--color-chocolate), var(--color-caramel));
+  overflow: hidden;
   position: relative;
-  z-index: 2;
-  margin: 0 auto;
+  background: rgba(100, 73, 63, 0.4);
+  box-shadow:
+    0 0 0 1px rgba(163, 126, 111, 0.2),
+    0 0 40px 20px rgba(42, 18, 5, 0.6),
+    inset 0 0 60px rgba(42, 18, 5, 0.4);
+  animation: float 5s ease-in-out infinite;
+}
+
+.hero-cake-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  opacity: 0.85;
+  mask-image: radial-gradient(circle, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 100%);
 }
 
 .sugar-particle {
