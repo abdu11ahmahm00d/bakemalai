@@ -1,6 +1,7 @@
 const chatbotHTML = `
 <div class="chatbot-floating-btn shadow" onclick="toggleChatbot()" title="Chat with Kiki">
     🧁
+    <div class="kiki-flag">Chat with Kiki! 🍰</div>
 </div>
 
 <div class="chatbot-panel" id="chatbotPanel">

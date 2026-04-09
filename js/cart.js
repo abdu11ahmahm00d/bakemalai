@@ -77,54 +77,12 @@ function clearCart() {
     saveCart();
 }
 
-function confirmOrder() {
+function handleCheckout() {
     if (cart.length === 0) {
         alert("Your cart is empty!");
         return;
     }
-    
-    let orderSummary = "Hello Bakemalai! I want to place an order:\n\n";
-    cart.forEach(item => {
-        orderSummary += `- ${item.name} (x${item.quantity}) = ৳${item.price * item.quantity}\n`;
-    });
-    orderSummary += `\n*Grand Total: ৳${getCartTotal()}*`;
-
-    const waUrl = "https://wa.me/8801837138483?text=" + encodeURIComponent(orderSummary);
-    window.open(waUrl, '_blank');
-
-    clearCart();
-    
-    const offcanvasEl = document.getElementById('cartOffcanvas');
-    if (offcanvasEl && typeof bootstrap !== "undefined") {
-        const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvasEl);
-        if (bsOffcanvas) bsOffcanvas.hide();
-    }
-    
-    let toastContainer = document.getElementById('toastWrapper');
-    if (!toastContainer) {
-        toastContainer = document.createElement('div');
-        toastContainer.id = 'toastWrapper';
-        toastContainer.className = 'toast-container position-fixed bottom-0 start-50 translate-middle-x p-3';
-        toastContainer.style.zIndex = '1060';
-        document.body.appendChild(toastContainer);
-    }
-
-    toastContainer.innerHTML = `
-        <div class="toast align-items-center text-bg-success border-0 shadow-lg" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="d-flex">
-                <div class="toast-body fw-bold">
-                    Your order has been sent via WhatsApp! We'll confirm shortly. 🍫
-                </div>
-                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-        </div>
-    `;
-    
-    if (typeof bootstrap !== "undefined") {
-        const toastEl = toastContainer.querySelector('.toast');
-        const bsToast = new bootstrap.Toast(toastEl, { delay: 5000 });
-        bsToast.show();
-    }
+    window.location.href = 'checkout.html';
 }
 
 function renderCart() {

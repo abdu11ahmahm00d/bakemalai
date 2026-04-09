@@ -222,35 +222,35 @@
                     A Taste of Our World</h2>
                 <div class="taste-grid text-start">
                     <div class="taste-tile shadow-sm" data-animate="fadeInUp" style="animation-delay: 0ms;">
-                        <img src="images\black forest cherry.jpg" alt="Gallery preview"
+                        <img src="images/498954455_122130656936779149_4311065370139792385_n.jpg" alt="Gallery preview"
                             loading="lazy">
                     </div>
                     <div class="taste-tile shadow-sm" data-animate="fadeInUp" style="animation-delay: 100ms;">
-                        <img src="images\chocolate tea time.jpg" alt="Gallery preview"
+                        <img src="images/535691434_122147050706779149_278218525168736046_n.jpg" alt="Gallery preview"
                             loading="lazy">
                     </div>
                     <div class="taste-tile shadow-sm" data-animate="fadeInUp" style="animation-delay: 200ms;">
-                        <img src="images\premium chocolate.jpg" alt="Gallery preview"
+                        <img src="images/544376309_122149204796779149_6409273246634171829_n.jpg" alt="Gallery preview"
                             loading="lazy">
                     </div>
                     <div class="taste-tile shadow-sm" data-animate="fadeInUp" style="animation-delay: 300ms;">
-                        <img src="images\roshmalai 3.jpg" alt="Gallery preview"
+                        <img src="images/548738230_122150610284779149_5936484468830690916_n.jpg" alt="Gallery preview"
                             loading="lazy">
                     </div>
                     <div class="taste-tile shadow-sm" data-animate="fadeInUp" style="animation-delay: 400ms;">
-                        <img src="images\premium chocolate 2.jpg" alt="Gallery preview"
+                        <img src="images/549191757_122150612240779149_2484156643445239213_n.jpg" alt="Gallery preview"
                             loading="lazy">
                     </div>
                     <div class="taste-tile shadow-sm" data-animate="fadeInUp" style="animation-delay: 500ms;">
-                        <img src="images\lemon tea time.jpg" alt="Gallery preview"
+                        <img src="images/552696669_122151364004779149_5005140022903125518_n.jpg" alt="Gallery preview"
                             loading="lazy">
                     </div>
                     <div class="taste-tile shadow-sm" data-animate="fadeInUp" style="animation-delay: 600ms;">
-                        <img src="images\blueberry.jpg" alt="Gallery preview"
+                        <img src="images/557739027_122152297982779149_5890937333707516711_n.jpg" alt="Gallery preview"
                             loading="lazy">
                     </div>
                     <div class="taste-tile shadow-sm" data-animate="fadeInUp" style="animation-delay: 700ms;">
-                        <img src="images/lemon.jpg" alt="Gallery preview"
+                        <img src="images/594518471_122159776592779149_5731850074273101623_n.jpg" alt="Gallery preview"
                             loading="lazy">
                     </div>
                 </div>
