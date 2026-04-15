@@ -14,50 +14,34 @@ exports.handler = async (event, context) => {
             return { statusCode: 400, body: JSON.stringify({ error: 'Missing required fields' }) };
         }
 
-        const telegramPromise = new Promise((resolve, reject) => {
+        const telegramPromise = new Promise((resolve) => {
             const itemsList = items.map(i => `• ${i.name} (x${i.qty}) = ৳${i.price * i.qty}`).join('\n');
             const message = `🛍️ <b>New Order Received!</b>\n\n👤 <b>Name:</b> ${name}\n📞 <b>Phone:</b> ${phone}\n📍 <b>Address:</b> ${address}, ${city}\n💳 <b>Payment:</b> ${paymentMethod}\n🧾 <b>Items:</b>\n${itemsList}\n\n💰 <b>Total:</b> ৳${total}`;
             
-            const chatIds = [process.env.TELEGRAM_CHAT_ID];
+            const chatIds = [process.env.TELEGRAM_CHAT_ID].filter(Boolean);
             if (process.env.TELEGRAM_CHAT_ID_2) {
                 chatIds.push(process.env.TELEGRAM_CHAT_ID_2);
             }
 
+            if (chatIds.length === 0) return resolve();
+
             let completedRequests = 0;
-            let errorOccurred = false;
-
             chatIds.forEach(chatId => {
-                const data = JSON.stringify({
-                    chat_id: chatId,
-                    text: message,
-                    parse_mode: 'HTML'
-                });
-
+                const data = JSON.stringify({ chat_id: chatId, text: message, parse_mode: 'HTML' });
                 const req = https.request('https://api.telegram.org/bot' + process.env.TELEGRAM_BOT_TOKEN + '/sendMessage', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Content-Length': Buffer.byteLength(data)
-                    }
+                    headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(data) }
                 }, (res) => {
-                    let resData = '';
-                    res.on('data', chunk => resData += chunk);
+                    res.on('data', () => {}); // Consume stream
                     res.on('end', () => {
                         completedRequests++;
-                        if (res.statusCode < 200 || res.statusCode >= 300) {
-                            errorOccurred = true;
-                        }
-                        if (completedRequests === chatIds.length) {
-                            if (errorOccurred) {
-                                reject(new Error('Telegram API error'));
-                            } else {
-                                resolve();
-                            }
-                        }
+                        if (completedRequests === chatIds.length) resolve();
                     });
                 });
-
-                req.on('error', reject);
+                req.on('error', () => {
+                    completedRequests++;
+                    if (completedRequests === chatIds.length) resolve();
+                });
                 req.write(data);
                 req.end();
             });
@@ -71,7 +55,6 @@ exports.handler = async (event, context) => {
             try {
                 credentials = JSON.parse(key);
             } catch (err) {
-                // Remove potential outer quotes added by some parsers
                 const cleaned = key.trim().replace(/^['"]|['"]$/g, '');
                 credentials = JSON.parse(cleaned);
             }
@@ -83,24 +66,58 @@ exports.handler = async (event, context) => {
             const sheets = google.sheets({ version: 'v4', auth });
             
             const itemsStr = items.map(i => `${i.name} x${i.qty}`).join(', ');
+            const displayPaymentMethod = paymentMethod === 'bkash' ? 'Bkash' : 'Cash on Delivery';
+
+            const spreadsheet = await sheets.spreadsheets.get({
+                spreadsheetId: process.env.GOOGLE_SHEET_ID
+            });
+            const targetSheet = spreadsheet.data.sheets.find(s => s.properties.title === 'Orders');
+            if (!targetSheet) throw new Error("Sheet 'Orders' not found.");
+            const sheetId = targetSheet.properties.sheetId;
+
+            const formatTimestamp = () => {
+                const now = new Date();
+                const pad = (n) => String(n).padStart(2, '0');
+                return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}`;
+            };
             
-            await sheets.spreadsheets.values.append({
+            // 1. Insert a new empty row at the top (Index 3 = Row 4)
+            await sheets.spreadsheets.batchUpdate({
                 spreadsheetId: process.env.GOOGLE_SHEET_ID,
-                range: 'Orders!A:J',
+                requestBody: {
+                    requests: [{
+                        insertDimension: {
+                            range: {
+                                sheetId: sheetId,
+                                dimension: 'ROWS',
+                                startIndex: 3,
+                                endIndex: 4
+                            },
+                            inheritFromBefore: false
+                        }
+                    }]
+                }
+            });
+
+            // 2. Populate the new row with data
+            await sheets.spreadsheets.values.update({
+                spreadsheetId: process.env.GOOGLE_SHEET_ID,
+                range: 'Orders!A4:K4',
                 valueInputOption: 'USER_ENTERED',
                 requestBody: {
                     values: [
                         [
-                            '', // A: Order # (Placeholder)
-                            new Date().toLocaleString(), // B: Timestamp
+                            '=IF(ISNUMBER(A5), A5+1, 1)', // A: Auto-incrementing Order ID
+                            formatTimestamp(), // B: Timestamp
                             name, // C: Customer Name
                             phone, // D: Phone
                             address, // E: Address
                             city, // F: City
-                            paymentMethod, // G: Payment Status/Method
-                            total, // H: Total Amount
-                            itemsStr, // I: Items
-                            'New' // J: Order Status
+                            displayPaymentMethod, // G: Payment Method
+                            bkashTxnId, // H: Bkash TXN ID
+                            itemsStr, // I: Items Ordered
+                            total, // J: Total Amount
+                            'New' // K: Order Status
                         ]
                     ]
                 }
@@ -111,21 +128,15 @@ exports.handler = async (event, context) => {
 
         return {
             statusCode: 200,
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' },
             body: JSON.stringify({ success: true })
         };
     } catch (error) {
         console.error('Notify Function Error:', error);
         return { 
             statusCode: 500, 
-            body: JSON.stringify({ 
-                success: false, 
-                error: error.message,
-                stack: error.stack 
-            }) 
+            headers: { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' },
+            body: JSON.stringify({ success: false, error: error.message }) 
         };
     }
 };

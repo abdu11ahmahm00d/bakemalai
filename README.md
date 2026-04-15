@@ -1,6 +1,6 @@
 # Bakemalai
 
-Bringing sweets to life - A premium Bangladeshi bakery experience.
+Sweets to life - A premium Bangladeshi bakery experience.
 
 ## Features
 - Home Page (index.html)
