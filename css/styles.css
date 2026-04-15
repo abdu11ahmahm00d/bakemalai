@@ -203,6 +203,12 @@ h6 {
   .navbar-toggler {
     padding: 4px 8px;
   }
+
+  .hero-logo {
+    max-width: 250px;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+    margin-bottom: 12px;
+  }
 }
 
 footer.bg-light {
