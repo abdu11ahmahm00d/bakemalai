@@ -18,30 +18,48 @@ exports.handler = async (event, context) => {
             const itemsList = items.map(i => `• ${i.name} (x${i.qty}) = ৳${i.price * i.qty}`).join('\n');
             const message = `🛍️ <b>New Order Received!</b>\n\n👤 <b>Name:</b> ${name}\n📞 <b>Phone:</b> ${phone}\n📍 <b>Address:</b> ${address}, ${city}\n💳 <b>Payment:</b> ${paymentMethod}\n🧾 <b>Items:</b>\n${itemsList}\n\n💰 <b>Total:</b> ৳${total}`;
             
-            const chatIds = [process.env.TELEGRAM_CHAT_ID].filter(Boolean);
-            if (process.env.TELEGRAM_CHAT_ID_2) {
-                chatIds.push(process.env.TELEGRAM_CHAT_ID_2);
+            // Automatically find all chat IDs (TELEGRAM_CHAT_ID, TELEGRAM_CHAT_ID_2, etc.)
+            const chatIds = Object.keys(process.env)
+                .filter(key => key.startsWith('TELEGRAM_CHAT_ID'))
+                .map(key => process.env[key] ? String(process.env[key]).trim() : null)
+                .filter(Boolean);
+            
+            console.log('Dispatching Telegram notifications to:', chatIds);
+            
+            if (chatIds.length === 0) {
+                console.warn('No Telegram chat IDs found in environment.');
+                return resolve();
             }
-
-            if (chatIds.length === 0) return resolve();
 
             let completedRequests = 0;
             chatIds.forEach(chatId => {
                 const data = JSON.stringify({ chat_id: chatId, text: message, parse_mode: 'HTML' });
-                const req = https.request('https://api.telegram.org/bot' + process.env.TELEGRAM_BOT_TOKEN + '/sendMessage', {
+                const req = https.request(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(data) }
+                    headers: { 
+                        'Content-Type': 'application/json', 
+                        'Content-Length': Buffer.byteLength(data) 
+                    }
                 }, (res) => {
-                    res.on('data', () => {}); // Consume stream
+                    let resBody = '';
+                    res.on('data', (d) => { resBody += d; });
                     res.on('end', () => {
+                        if (res.statusCode !== 200) {
+                            console.error(`Telegram delivery failed for ID ${chatId}:`, res.statusCode, resBody);
+                        } else {
+                            console.log(`Telegram message delivered to ${chatId}`);
+                        }
                         completedRequests++;
                         if (completedRequests === chatIds.length) resolve();
                     });
                 });
-                req.on('error', () => {
+                
+                req.on('error', (err) => {
+                    console.error(`Request error for Telegram ID ${chatId}:`, err);
                     completedRequests++;
                     if (completedRequests === chatIds.length) resolve();
                 });
+                
                 req.write(data);
                 req.end();
             });
