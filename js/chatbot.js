@@ -11,7 +11,7 @@ const chatbotHTML = `
     </div>
     <div class="chatbot-body p-3" id="chatbotBody">
         <div class="chat-bubble kiki-bubble">
-            Hi! I'm Kiki 🍰 Ask me anything about cake designs, flavors, or custom orders!
+            Hi! I'm Kiki 🍰 I know everything on Bakemalai's menu — ask me about any cake, what it tastes like, or how you can personalise it for your occasion!
         </div>
     </div>
     <div class="chatbot-footer p-2">
