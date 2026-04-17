@@ -224,7 +224,7 @@ footer p {
   color: var(--color-cream) !important;
 }
 
-/* Navigation and Header Overrides Applied Above */
+
 
 .hero-wrapper {
   min-height: 100vh;
@@ -287,7 +287,7 @@ footer p {
   fill: var(--color-cream);
 }
 
-/* Base Component Classes */
+
 .bm-card {
   background-color: var(--color-cream);
   border: 1px solid rgba(200, 134, 10, 0.2);
@@ -329,7 +329,7 @@ footer p {
   transition: transform 0.4s ease, filter 0.4s ease;
 }
 
-/* Product Cards & Images Uniformity */
+
 .bm-card img,
 .candy-card-img,
 .product-img-ph {
@@ -915,7 +915,7 @@ footer p {
   }
 }
 
-/* SPRING SPRING REDESIGN (Inspired by Qwen visual redesign) */
+
 .spring-cta {
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), url('../images/wood-bg.webp') no-repeat center center / cover;
   padding: 100px 0;
@@ -926,7 +926,7 @@ footer p {
   display: flex;
   align-items: center;
   border-top: 5px solid #F8EDE3;
-  /* Matching the top border color from image */
+
 }
 
 
@@ -966,7 +966,7 @@ footer p {
 
 .spring-cta-right h2 {
   font-family: 'Fredoka One', cursive;
-  /* Match BakeMalai brand */
+
   font-size: 5rem;
   line-height: 1.1;
   margin-bottom: 5px;
@@ -983,7 +983,7 @@ footer p {
 
 .btn-spring {
   background: linear-gradient(135deg, var(--color-candy-pink) 0%, var(--color-pink-dark) 100%);
-  /* Logo Pink Gradient */
+
   color: #FFFFFF !important;
   border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 18px 50px;

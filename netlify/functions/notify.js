@@ -18,7 +18,7 @@ exports.handler = async (event, context) => {
             const itemsList = items.map(i => `• ${i.name} (x${i.qty}) = ৳${i.price * i.qty}`).join('\n');
             const message = `🛍️ <b>New Order Received!</b>\n\n👤 <b>Name:</b> ${name}\n📞 <b>Phone:</b> ${phone}\n📍 <b>Address:</b> ${address}, ${city}\n💳 <b>Payment:</b> ${paymentMethod}\n🧾 <b>Items:</b>\n${itemsList}\n\n💰 <b>Total:</b> ৳${total}`;
             
-            // Automatically find all chat IDs (TELEGRAM_CHAT_ID, TELEGRAM_CHAT_ID_2, etc.)
+
             const chatIds = Object.keys(process.env)
                 .filter(key => key.startsWith('TELEGRAM_CHAT_ID'))
                 .map(key => process.env[key] ? String(process.env[key]).trim() : null)
@@ -99,7 +99,7 @@ exports.handler = async (event, context) => {
                 return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}`;
             };
             
-            // 1. Insert a new empty row at the top (Index 3 = Row 4)
+
             await sheets.spreadsheets.batchUpdate({
                 spreadsheetId: process.env.GOOGLE_SHEET_ID,
                 requestBody: {
@@ -117,7 +117,7 @@ exports.handler = async (event, context) => {
                 }
             });
 
-            // 2. Populate the new row with data
+
             await sheets.spreadsheets.values.update({
                 spreadsheetId: process.env.GOOGLE_SHEET_ID,
                 range: 'Orders!A4:K4',
@@ -125,17 +125,17 @@ exports.handler = async (event, context) => {
                 requestBody: {
                     values: [
                         [
-                            '=IF(ISNUMBER(A5), A5+1, 1)', // A: Auto-incrementing Order ID
-                            formatTimestamp(), // B: Timestamp
-                            name, // C: Customer Name
-                            phone, // D: Phone
-                            address, // E: Address
-                            city, // F: City
-                            displayPaymentMethod, // G: Payment Method
-                            bkashTxnId, // H: Bkash TXN ID
-                            itemsStr, // I: Items Ordered
-                            total, // J: Total Amount
-                            'New' // K: Order Status
+
+                            formatTimestamp(),
+                            name,
+                            phone,
+                            address,
+                            city,
+                            displayPaymentMethod,
+                            bkashTxnId,
+                            itemsStr,
+                            total,
+                            'New'
                         ]
                     ]
                 }
