@@ -2,6 +2,26 @@
 <html lang="en">
 
 <head>
+    <!-- Critical CSS for layout stability -->
+    <style>
+        :root {
+            --color-chocolate: #64493F;
+            --color-cream: #FAF3EE;
+            --color-candy-pink: #CC9180;
+            --font-heading: 'Fredoka One', cursive, sans-serif;
+            --font-body: 'Nunito', sans-serif;
+            --radius-pill: 999px;
+            --color-caramel: #A37E6F;
+        }
+        body { margin: 0; background-color: var(--color-cream); font-family: var(--font-body); color: var(--color-chocolate); overflow-x: hidden; }
+        .hero-wrapper { min-height: 80vh; display: flex; align-items: center; justify-content: center; position: relative; background: #fff; }
+        .hero-logo { width: 400px; height: auto; max-width: 90%; aspect-ratio: 1024 / 751; }
+        .navbar { height: 70px; background: #212529; }
+        [data-animate] { opacity: 0; transition: opacity 0.5s ease; }
+        /* Prevent shop section header jumps */
+        .shop-header { height: 220px; background: #64493F; display: flex; align-items: center; justify-content: center; }
+    </style>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Shop Bakemalai's premium cakes, sweets, and famous Jaafrani Roshmallai.">
@@ -163,7 +183,7 @@
                 </div>
                 <div class="col">
                     <div class="card h-100 candy-card border-0 shadow-sm">
-                        <img src="images/black_forest.webp" class="card-img-top candy-card-img" alt="Black Forest">
+                        <img src="images/black_forest.webp" class="card-img-top candy-card-img" alt="Black Forest" width="800" height="818">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-chocolate">Black/White Forest</h5>
                             <p class="card-text text-muted mb-3 flex-grow-1 small">Classic forest flavors with cherries
@@ -250,7 +270,7 @@
                 <div class="col">
                     <div class="card h-100 candy-card border-0 shadow-sm position-relative">
                         <div class="badge-ribbon">Bestseller 🥛</div>
-                        <img src="images/roshmalai 3.webp" class="card-img-top candy-card-img" alt="Roshmalai Cake">
+                        <img src="images/roshmalai 3.webp" class="card-img-top candy-card-img" alt="Roshmalai Cake" width="800" height="965">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-chocolate">Roshmalai Cake</h5>
                             <p class="card-text text-muted mb-3 flex-grow-1 small">A fusion of traditional sweets and
@@ -264,7 +284,7 @@
                 <div class="col">
                     <div class="card h-100 candy-card border-0 shadow-sm">
                         <img src="images/jafrani_roshmalai.webp" class="card-img-top candy-card-img"
-                            alt="Jafrani Roshmalai">
+                            alt="Jafrani Roshmalai" width="800" height="553">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-chocolate">Jafrani Roshmalai</h5>
                             <p class="card-text text-muted mb-3 flex-grow-1 small">Authentic saffron-infused roshmalai

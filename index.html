@@ -2,6 +2,26 @@
 <html lang="en">
 
 <head>
+    <!-- Critical CSS for layout stability -->
+    <style>
+        :root {
+            --color-chocolate: #64493F;
+            --color-cream: #FAF3EE;
+            --color-candy-pink: #CC9180;
+            --font-heading: 'Fredoka One', cursive, sans-serif;
+            --font-body: 'Nunito', sans-serif;
+            --radius-pill: 999px;
+            --color-caramel: #A37E6F;
+        }
+        body { margin: 0; background-color: var(--color-cream); font-family: var(--font-body); color: var(--color-chocolate); overflow-x: hidden; }
+        .hero-wrapper { min-height: 80vh; display: flex; align-items: center; justify-content: center; position: relative; background: #fff; }
+        .hero-logo { width: 400px; height: auto; max-width: 90%; aspect-ratio: 1024 / 751; }
+        .navbar { height: 70px; background: #212529; }
+        [data-animate] { opacity: 0; transition: opacity 0.5s ease; }
+        /* Prevent shop section header jumps */
+        .shop-header { height: 220px; background: #64493F; display: flex; align-items: center; justify-content: center; }
+    </style>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
@@ -121,7 +141,7 @@
             <div class="container position-relative z-1 py-5">
                 <div class="row justify-content-center">
                     <div class="col-lg-8 text-center" data-animate="fadeInUp">
-                        <img src="images/logo.png" alt="Bakemalai Logo" class="hero-logo img-fluid">
+                        <img src="images/logo.png" alt="Bakemalai Logo" class="hero-logo img-fluid" width="1024" height="751" fetchpriority="high">
                         <p class="fs-2 mb-4 hero-tagline">sweets to life</p>
                         <p class="hero-stats mb-5">✨ Happy Customers &middot; 🍫 Made Fresh Daily &middot; 📍 Patenga,
                             Chittagong</p>
@@ -153,7 +173,7 @@
                     <div class="col-md-6 col-lg-3" data-animate="fadeInUp">
                         <div class="bm-card d-flex flex-column h-100">
                             <img src="images/jafrani_roshmalai.webp" class="rounded-top"
-                                style="height: 180px; object-fit: cover;" alt="Jafrani Roshmalai">
+                                style="height: 180px; object-fit: cover;" alt="Jafrani Roshmalai" width="800" height="553">
                             <div class="p-4 d-flex flex-column flex-grow-1">
                                 <h5 class="fw-bold fs-4 text-chocolate" style="font-family: var(--font-heading);">
                                     Jafrani Roshmalai</h5>
@@ -173,7 +193,7 @@
                     <div class="col-md-6 col-lg-3" data-animate="fadeInUp" style="animation-delay: 100ms;">
                         <div class="bm-card d-flex flex-column h-100">
                             <img src="images/black_forest.webp" class="rounded-top"
-                                style="height: 180px; object-fit: cover;" alt="Black Forest">
+                                style="height: 180px; object-fit: cover;" alt="Black Forest" width="800" height="818">
                             <div class="p-4 d-flex flex-column flex-grow-1">
                                 <h5 class="fw-bold fs-4 text-chocolate" style="font-family: var(--font-heading);">Black
                                     Forest</h5>
@@ -193,7 +213,7 @@
                     <div class="col-md-6 col-lg-3" data-animate="fadeInUp" style="animation-delay: 200ms;">
                         <div class="bm-card d-flex flex-column h-100">
                             <img src="images/red_velvet.webp" class="rounded-top"
-                                style="height: 180px; object-fit: cover;" alt="Red Velvet">
+                                style="height: 180px; object-fit: cover;" alt="Red Velvet" width="800" height="630">
                             <div class="p-4 d-flex flex-column flex-grow-1">
                                 <h5 class="fw-bold fs-4 text-chocolate" style="font-family: var(--font-heading);">Red
                                     Velvet Heart Cake</h5>
@@ -213,7 +233,7 @@
                     <div class="col-md-6 col-lg-3" data-animate="fadeInUp" style="animation-delay: 300ms;">
                         <div class="bm-card d-flex flex-column h-100">
                             <img src="images/chocolate_premium.webp" class="rounded-top"
-                                style="height: 180px; object-fit: cover;" alt="Chocolate Premium">
+                                style="height: 180px; object-fit: cover;" alt="Chocolate Premium" width="800" height="800">
                             <div class="p-4 d-flex flex-column flex-grow-1">
                                 <h5 class="fw-bold fs-4 text-chocolate" style="font-family: var(--font-heading);">
                                     Chocolate Premium</h5>
@@ -256,7 +276,7 @@
                         <img src="images/premium chocolate.webp" alt="Gallery preview" loading="lazy">
                     </div>
                     <div class="taste-tile shadow-sm" data-animate="fadeInUp" style="animation-delay: 300ms;">
-                        <img src="images/roshmalai 3.webp" alt="Gallery preview" loading="lazy">
+                        <img src="images/roshmalai 3.webp" alt="Gallery preview" loading="lazy" width="800" height="965">
                     </div>
                     <div class="taste-tile shadow-sm" data-animate="fadeInUp" style="animation-delay: 400ms;">
                         <img src="images/premium chocolate 2.webp" alt="Gallery preview" loading="lazy">
