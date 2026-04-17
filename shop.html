@@ -6,19 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Shop Bakemalai's premium cakes, sweets, and famous Jaafrani Roshmallai.">
     <link rel="icon" type="image/png" href="images/favicon.png">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://bakemalai.netlify.app/shop.html">
     <meta property="og:title" content="Bakemalai Shop - Order Premium Cakes">
-    <meta property="og:description" content="Shop Bakemalai's premium cakes, sweets, and famous Jaafrani Roshmallai direktly online.">
+    <meta property="og:description"
+        content="Shop Bakemalai's premium cakes, sweets, and famous Jaafrani Roshmallai directly online.">
     <meta property="og:image" content="https://bakemalai.netlify.app/images/og-preview.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://bakemalai.netlify.app/shop.html">
     <meta property="twitter:title" content="Bakemalai Shop - Order Premium Cakes">
-    <meta property="twitter:description" content="Shop Bakemalai's premium cakes, sweets, and famous Jaafrani Roshmallai direktly online.">
+    <meta property="twitter:description"
+        content="Shop Bakemalai's premium cakes, sweets, and famous Jaafrani Roshmallai directly online.">
     <meta property="twitter:image" content="https://bakemalai.netlify.app/images/og-preview.png">
 
     <title>Bakemalai - Shop</title>
@@ -26,11 +28,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"></noscript>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/animations.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/animations.css"></noscript>
     <link rel="stylesheet" href="css/styles.css">
     <style>
-        .shop-section-title, .card-title {
+        .shop-section-title,
+        .card-title {
             font-family: var(--font-heading) !important;
         }
     </style>
@@ -64,32 +71,39 @@
     </div>
 
     <main class="container py-5">
-        
+
         <!-- Section 1: Premium Cakes -->
         <div class="mb-5 text-center">
-            <h2 class="display-5 fw-bold text-chocolate mb-4 shop-section-title">Premium Collection <span class="fs-6 text-muted fw-normal">(1 pound prices)</span></h2>
+            <h2 class="display-5 fw-bold text-chocolate mb-4 shop-section-title">Premium Collection <span
+                    class="fs-6 text-muted fw-normal">(1 pound prices)</span></h2>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
                 <div class="col">
                     <div class="card h-100 candy-card border-0 shadow-sm position-relative">
                         <div class="badge-ribbon" style="background: var(--color-mint) !important;">Premium ✨</div>
-                        <img src="images\chocolate_premium.png" class="card-img-top candy-card-img" alt="Chocolate Premium">
+                        <img src="images\chocolate_premium.png" class="card-img-top candy-card-img"
+                            alt="Chocolate Premium">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-chocolate">Chocolate Premium</h5>
-                            <p class="card-text text-muted mb-3 flex-grow-1 small">Artisanal dark chocolate cake topped with Ferrero Rocher and hazelnuts.</p>
+                            <p class="card-text text-muted mb-3 flex-grow-1 small">Artisanal dark chocolate cake topped
+                                with Ferrero Rocher and hazelnuts.</p>
                             <h6 class="fw-bold fs-5 mb-3 text-caramel">৳2000</h6>
-                            <button onclick="addToCart('p3', 'Chocolate Premium (1lb)', 2000)" class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
+                            <button onclick="addToCart('p3', 'Chocolate Premium (1lb)', 2000)"
+                                class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card h-100 candy-card border-0 shadow-sm position-relative">
                         <div class="badge-ribbon">Most Loved 🍫</div>
-                        <img src="images\premium chocolate 2.jpg" class="card-img-top candy-card-img" alt="Chocolate Overloaded">
+                        <img src="images\premium chocolate 2.jpg" class="card-img-top candy-card-img"
+                            alt="Chocolate Overloaded">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-chocolate">Chocolate Overloaded</h5>
-                            <p class="card-text text-muted mb-3 flex-grow-1 small">Maximum chocolate intensity. Fully loaded with chunks.</p>
+                            <p class="card-text text-muted mb-3 flex-grow-1 small">Maximum chocolate intensity. Fully
+                                loaded with chunks.</p>
                             <h6 class="fw-bold fs-5 mb-3 text-caramel">৳1200</h6>
-                            <button onclick="addToCart('p4', 'Chocolate Overloaded (1lb)', 1200)" class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
+                            <button onclick="addToCart('p4', 'Chocolate Overloaded (1lb)', 1200)"
+                                class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -98,21 +112,26 @@
                         <img src="images\red_velvet.jpg" class="card-img-top candy-card-img" alt="Red Velvet">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-chocolate">Red Velvet Heart Cake</h5>
-                            <p class="card-text text-muted mb-3 flex-grow-1 small">Our signature heart-shaped red velvet with elegant pearl decorations.</p>
+                            <p class="card-text text-muted mb-3 flex-grow-1 small">Our signature heart-shaped red velvet
+                                with elegant pearl decorations.</p>
                             <h6 class="fw-bold fs-5 mb-3 text-caramel">৳900</h6>
-                            <button onclick="addToCart('p7', 'Red Velvet Cake (1lb)', 900)" class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
+                            <button onclick="addToCart('p7', 'Red Velvet Cake (1lb)', 900)"
+                                class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card h-100 candy-card border-0 shadow-sm position-relative">
                         <div class="badge-ribbon" style="background: var(--color-candy-pink) !important;">New 🌸</div>
-                        <img src="images\black forest cherry.jpg" class="card-img-top candy-card-img" alt="Black Forest Cherry">
+                        <img src="images\black forest cherry.jpg" class="card-img-top candy-card-img"
+                            alt="Black Forest Cherry">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-chocolate">Black Forest Cherry</h5>
-                            <p class="card-text text-muted mb-3 flex-grow-1 small">Classic black forest loaded with fresh cherries and chocolate shavings.</p>
+                            <p class="card-text text-muted mb-3 flex-grow-1 small">Classic black forest loaded with
+                                fresh cherries and chocolate shavings.</p>
                             <h6 class="fw-bold fs-5 mb-3 text-caramel">৳950</h6>
-                            <button onclick="addToCart('p19', 'Black Forest Cherry (1lb)', 950)" class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
+                            <button onclick="addToCart('p19', 'Black Forest Cherry (1lb)', 950)"
+                                class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -121,16 +140,20 @@
 
         <!-- Section 2: Classics -->
         <div class="mb-5 text-center">
-            <h2 class="display-5 fw-bold text-chocolate mb-4 shop-section-title">Classics <span class="fs-6 text-muted fw-normal">(1 pound prices)</span></h2>
+            <h2 class="display-5 fw-bold text-chocolate mb-4 shop-section-title">Classics <span
+                    class="fs-6 text-muted fw-normal">(1 pound prices)</span></h2>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
                 <div class="col">
                     <div class="card h-100 candy-card border-0 shadow-sm">
-                        <img src="images/premium chocolate.jpg" class="card-img-top candy-card-img" alt="Chocolate Cake">
+                        <img src="images/premium chocolate.jpg" class="card-img-top candy-card-img"
+                            alt="Chocolate Cake">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-chocolate">Chocolate Cake</h5>
-                            <p class="card-text text-muted mb-3 flex-grow-1 small">Rich chocolate sponge with smooth ganache layers.</p>
+                            <p class="card-text text-muted mb-3 flex-grow-1 small">Rich chocolate sponge with smooth
+                                ganache layers.</p>
                             <h6 class="fw-bold fs-5 mb-3 text-caramel">৳800</h6>
-                            <button onclick="addToCart('p2', 'Chocolate Cake (1lb)', 800)" class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
+                            <button onclick="addToCart('p2', 'Chocolate Cake (1lb)', 800)"
+                                class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -139,20 +162,25 @@
                         <img src="images/black_forest.jpg" class="card-img-top candy-card-img" alt="Black Forest">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-chocolate">Black/White Forest</h5>
-                            <p class="card-text text-muted mb-3 flex-grow-1 small">Classic forest flavors with cherries and white chocolate curls.</p>
+                            <p class="card-text text-muted mb-3 flex-grow-1 small">Classic forest flavors with cherries
+                                and white chocolate curls.</p>
                             <h6 class="fw-bold fs-5 mb-3 text-caramel">৳900</h6>
-                            <button onclick="addToCart('p5', 'Black/White Forest (1lb)', 900)" class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
+                            <button onclick="addToCart('p5', 'Black/White Forest (1lb)', 900)"
+                                class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card h-100 candy-card border-0 shadow-sm">
-                        <img src="images\drive-download-20260406T170135Z-1-001\butterscotched.jpg" class="card-img-top candy-card-img" alt="Butterscotch">
+                        <img src="images\drive-download-20260406T170135Z-1-001\butterscotched.jpg"
+                            class="card-img-top candy-card-img" alt="Butterscotch">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-chocolate">Butterscotch Cake</h5>
-                            <p class="card-text text-muted mb-3 flex-grow-1 small">Sweet and crunchy butterscotch praline layers.</p>
+                            <p class="card-text text-muted mb-3 flex-grow-1 small">Sweet and crunchy butterscotch
+                                praline layers.</p>
                             <h6 class="fw-bold fs-5 mb-3 text-caramel">৳900</h6>
-                            <button onclick="addToCart('p9', 'Butterscotch Cake (1lb)', 900)" class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
+                            <button onclick="addToCart('p9', 'Butterscotch Cake (1lb)', 900)"
+                                class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -161,9 +189,11 @@
                         <img src="images\lemon.jpg" class="card-img-top candy-card-img" alt="Lemon Cake">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-chocolate">Lemon Cake</h5>
-                            <p class="card-text text-muted mb-3 flex-grow-1 small">Zesty and refreshing lemon-flavored cake with tangy citrus notes.</p>
+                            <p class="card-text text-muted mb-3 flex-grow-1 small">Zesty and refreshing lemon-flavored
+                                cake with tangy citrus notes.</p>
                             <h6 class="fw-bold fs-5 mb-3 text-caramel">৳700</h6>
-                            <button onclick="addToCart('p17', 'Lemon Cake (1lb)', 700)" class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
+                            <button onclick="addToCart('p17', 'Lemon Cake (1lb)', 700)"
+                                class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -172,9 +202,11 @@
                         <img src="images\blueberry.jpg" class="card-img-top candy-card-img" alt="Blueberry Cake">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-chocolate">Blueberry Cake</h5>
-                            <p class="card-text text-muted mb-3 flex-grow-1 small">Juicy blueberry swirls with creamy cheesecake layers.</p>
+                            <p class="card-text text-muted mb-3 flex-grow-1 small">Juicy blueberry swirls with creamy
+                                cheesecake layers.</p>
                             <h6 class="fw-bold fs-5 mb-3 text-caramel">৳850</h6>
-                            <button onclick="addToCart('p18', 'Blueberry Cake (1lb)', 850)" class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
+                            <button onclick="addToCart('p18', 'Blueberry Cake (1lb)', 850)"
+                                class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -183,9 +215,11 @@
                         <img src="images\moist cake.jpg" class="card-img-top candy-card-img" alt="Chocolate Moist">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-chocolate">Chocolate Moist Cake</h5>
-                            <p class="card-text text-muted mb-3 flex-grow-1 small">Moisty, rich chocolate cake that melts in your mouth.</p>
+                            <p class="card-text text-muted mb-3 flex-grow-1 small">Moisty, rich chocolate cake that
+                                melts in your mouth.</p>
                             <h6 class="fw-bold fs-5 mb-3 text-caramel">৳800</h6>
-                            <button onclick="addToCart('p8', 'Chocolate Moist Cake', 800)" class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
+                            <button onclick="addToCart('p8', 'Chocolate Moist Cake', 800)"
+                                class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -194,9 +228,11 @@
                         <img src="images\chocolate tub.jpg" class="card-img-top candy-card-img" alt="Chocolate Tub">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-chocolate">Chocolate Tub Cake</h5>
-                            <p class="card-text text-muted mb-3 flex-grow-1 small">Fun, easy-to-eat cake served in a convenient tub.</p>
+                            <p class="card-text text-muted mb-3 flex-grow-1 small">Fun, easy-to-eat cake served in a
+                                convenient tub.</p>
                             <h6 class="fw-bold fs-5 mb-3 text-caramel">৳400</h6>
-                            <button onclick="addToCart('p16', 'Tub Cake', 400)" class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
+                            <button onclick="addToCart('p16', 'Tub Cake', 400)"
+                                class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -213,20 +249,26 @@
                         <img src="images/roshmalai 3.jpg" class="card-img-top candy-card-img" alt="Roshmalai Cake">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-chocolate">Roshmalai Cake</h5>
-                            <p class="card-text text-muted mb-3 flex-grow-1 small">A fusion of traditional sweets and premium cake.</p>
+                            <p class="card-text text-muted mb-3 flex-grow-1 small">A fusion of traditional sweets and
+                                premium cake.</p>
                             <h6 class="fw-bold fs-5 mb-3 text-caramel">৳1000</h6>
-                            <button onclick="addToCart('p6', 'Roshmalai Cake (1lb)', 1000)" class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
+                            <button onclick="addToCart('p6', 'Roshmalai Cake (1lb)', 1000)"
+                                class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card h-100 candy-card border-0 shadow-sm">
-                        <img src="images/jafrani_roshmalai.jpg" class="card-img-top candy-card-img" alt="Jafrani Roshmalai">
+                        <img src="images/jafrani_roshmalai.jpg" class="card-img-top candy-card-img"
+                            alt="Jafrani Roshmalai">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-chocolate">Jafrani Roshmalai</h5>
-                            <p class="card-text text-muted mb-3 flex-grow-1 small">Authentic saffron-infused roshmalai delight.</p>
-                            <h6 class="fw-bold fs-5 mb-3 text-caramel">৳600 <small class="text-muted fw-normal">/ kg</small></h6>
-                            <button onclick="addToCart('p10', 'Jafrani Roshmalai (1kg)', 600)" class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
+                            <p class="card-text text-muted mb-3 flex-grow-1 small">Authentic saffron-infused roshmalai
+                                delight.</p>
+                            <h6 class="fw-bold fs-5 mb-3 text-caramel">৳600 <small class="text-muted fw-normal">/
+                                    kg</small></h6>
+                            <button onclick="addToCart('p10', 'Jafrani Roshmalai (1kg)', 600)"
+                                class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -239,28 +281,34 @@
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
                 <div class="col">
                     <div class="card h-100 candy-card border-0 shadow-sm">
-                        <img src="images\vanilla tea time.jpg" class="card-img-top candy-card-img" alt="Vanilla Tea Time">
+                        <img src="images\vanilla tea time.jpg" class="card-img-top candy-card-img"
+                            alt="Vanilla Tea Time">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-chocolate">Vanilla Tea Time</h5>
                             <p class="card-text text-muted mb-0 small">Butter based: ৳400</p>
                             <p class="card-text text-muted mb-3 small">Oil based: ৳250</p>
                             <div class="mt-auto">
-                                <button onclick="addToCart('p11', 'Vanilla Tea Time (Butter)', 400)" class="btn btn-outline-chocolate btn-sm w-100 mb-1 fw-bold">Butter (৳400)</button>
-                                <button onclick="addToCart('p12', 'Vanilla Tea Time (Oil)', 250)" class="btn btn-outline-chocolate btn-sm w-100 fw-bold">Oil (৳250)</button>
+                                <button onclick="addToCart('p11', 'Vanilla Tea Time (Butter)', 400)"
+                                    class="btn btn-outline-chocolate btn-sm w-100 mb-1 fw-bold">Butter (৳400)</button>
+                                <button onclick="addToCart('p12', 'Vanilla Tea Time (Oil)', 250)"
+                                    class="btn btn-outline-chocolate btn-sm w-100 fw-bold">Oil (৳250)</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card h-100 candy-card border-0 shadow-sm">
-                        <img src="images\chocolate tea time.jpg" class="card-img-top candy-card-img" alt="Chocolate Tea Time">
+                        <img src="images\chocolate tea time.jpg" class="card-img-top candy-card-img"
+                            alt="Chocolate Tea Time">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-chocolate">Chocolate Tea Time</h5>
                             <p class="card-text text-muted mb-0 small">Butter based: ৳480</p>
                             <p class="card-text text-muted mb-3 small">Oil based: ৳300</p>
                             <div class="mt-auto">
-                                <button onclick="addToCart('p13', 'Chocolate Tea Time (Butter)', 480)" class="btn btn-outline-chocolate btn-sm w-100 mb-1 fw-bold">Butter (৳480)</button>
-                                <button onclick="addToCart('p14', 'Chocolate Tea Time (Oil)', 300)" class="btn btn-outline-chocolate btn-sm w-100 fw-bold">Oil (৳300)</button>
+                                <button onclick="addToCart('p13', 'Chocolate Tea Time (Butter)', 480)"
+                                    class="btn btn-outline-chocolate btn-sm w-100 mb-1 fw-bold">Butter (৳480)</button>
+                                <button onclick="addToCart('p14', 'Chocolate Tea Time (Oil)', 300)"
+                                    class="btn btn-outline-chocolate btn-sm w-100 fw-bold">Oil (৳300)</button>
                             </div>
                         </div>
                     </div>
@@ -273,8 +321,10 @@
                             <p class="card-text text-muted mb-0 small">Butter based: ৳420</p>
                             <p class="card-text text-muted mb-3 small">Oil based: ৳280</p>
                             <div class="mt-auto">
-                                <button onclick="addToCart('p20', 'Lemon Tea Time (Butter)', 420)" class="btn btn-outline-chocolate btn-sm w-100 mb-1 fw-bold">Butter (৳420)</button>
-                                <button onclick="addToCart('p21', 'Lemon Tea Time (Oil)', 280)" class="btn btn-outline-chocolate btn-sm w-100 fw-bold">Oil (৳280)</button>
+                                <button onclick="addToCart('p20', 'Lemon Tea Time (Butter)', 420)"
+                                    class="btn btn-outline-chocolate btn-sm w-100 mb-1 fw-bold">Butter (৳420)</button>
+                                <button onclick="addToCart('p21', 'Lemon Tea Time (Oil)', 280)"
+                                    class="btn btn-outline-chocolate btn-sm w-100 fw-bold">Oil (৳280)</button>
                             </div>
                         </div>
                     </div>
@@ -283,10 +333,12 @@
                     <div class="card h-100 candy-card border-0 shadow-sm">
                         <img src="images\marble cake.png" class="card-img-top candy-card-img" alt="Marble Cake">
                         <div class="card-body d-flex flex-column">
-                            <h5 class="card-title fw-bold text-chocolate">Marble Cake <small class="text-muted fw-normal">(4 pcs)</small></h5>
+                            <h5 class="card-title fw-bold text-chocolate">Marble Cake <small
+                                    class="text-muted fw-normal">(4 pcs)</small></h5>
                             <p class="card-text text-muted mb-3 flex-grow-1 small">Delicious, assorted marble cake.</p>
                             <h6 class="fw-bold fs-5 mb-3 text-caramel">৳250</h6>
-                            <button onclick="addToCart('p15', 'Marble Cake (4 pcs)', 250)" class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
+                            <button onclick="addToCart('p15', 'Marble Cake (4 pcs)', 250)"
+                                class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -334,3 +386,4 @@
 </body>
 
 </html>
+
