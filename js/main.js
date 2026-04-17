@@ -81,24 +81,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const grid = document.querySelector('.masonry-gallery');
 
+    function resizeAllMasonryItems() {
+        const grid = document.querySelector('.masonry-gallery');
+        if (!grid) return;
+        
+        const allItems = Array.from(document.querySelectorAll('.masonry-item:not(.d-none)'));
+        const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap')) || 8;
+        const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows')) || 8;
+
+        // Batch Read: Get all heights first
+        const heights = allItems.map(item => {
+            const img = item.querySelector('img');
+            let contentHeight = img ? img.getBoundingClientRect().height : 250;
+            if (contentHeight === 0) contentHeight = 250;
+            return contentHeight;
+        });
+
+        // Batch Write: Apply all styles next
+        allItems.forEach((item, index) => {
+            const rowSpan = Math.ceil((heights[index] + rowGap) / (rowHeight + rowGap));
+            item.style.gridRowEnd = 'span ' + rowSpan;
+        });
+    }
+
     function resizeMasonryItem(item) {
+        // Individual resize still uses the same logic but we prefer the batched version for bulk updates
+        const grid = document.querySelector('.masonry-gallery');
         if (!grid) return;
         const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap')) || 8;
         const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows')) || 8;
-        
         const img = item.querySelector('img');
-        if (!img) return;
-
-        let contentHeight = img.getBoundingClientRect().height;
-        if(contentHeight === 0) contentHeight = 250;
-
+        const contentHeight = img && img.getBoundingClientRect().height > 0 ? img.getBoundingClientRect().height : 250;
         const rowSpan = Math.ceil((contentHeight + rowGap) / (rowHeight + rowGap));
         item.style.gridRowEnd = 'span ' + rowSpan;
-    }
-
-    function resizeAllMasonryItems() {
-        const allItems = document.querySelectorAll('.masonry-item:not(.d-none)');
-        allItems.forEach(resizeMasonryItem);
     }
     
     if (grid) {
