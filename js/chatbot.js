@@ -11,7 +11,7 @@ const chatbotHTML = `
     </div>
     <div class="chatbot-body p-3" id="chatbotBody">
         <div class="chat-bubble kiki-bubble">
-            Hi! I'm Kiki 🍰 I know everything on Bakemalai's menu — ask me about any cake, what it tastes like, or how you can personalise it for your occasion!
+            Hi! I'm Kiki 🍰 I know everything on Bakemalai's menu; ask me about any cake, what it tastes like, or how you can personalise it for your occasion!
         </div>
     </div>
     <div class="chatbot-footer p-2">
@@ -44,59 +44,59 @@ function sendMessage() {
     const input = document.getElementById('chatInput');
     const msg = input.value.trim();
     if (!msg) return;
-    
+
     const body = document.getElementById('chatbotBody');
-    
+
     const userBubble = document.createElement('div');
     userBubble.className = 'chat-bubble user-bubble';
     userBubble.textContent = msg;
     body.appendChild(userBubble);
-    
+
     input.value = '';
     body.scrollTop = body.scrollHeight;
-    
+
     const typingIndicator = document.createElement('div');
     typingIndicator.className = 'chat-bubble kiki-bubble text-muted';
     typingIndicator.innerHTML = '<em>Kiki is thinking... 🍩</em>';
     body.appendChild(typingIndicator);
     body.scrollTop = body.scrollHeight;
-    
+
     fetch('/.netlify/functions/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: msg })
     })
-    .then(response => response.json())
-    .then(data => {
-        if (typingIndicator.parentNode) {
-            typingIndicator.parentNode.removeChild(typingIndicator);
-        }
+        .then(response => response.json())
+        .then(data => {
+            if (typingIndicator.parentNode) {
+                typingIndicator.parentNode.removeChild(typingIndicator);
+            }
 
-        const kikiBubble = document.createElement('div');
-        kikiBubble.className = 'chat-bubble kiki-bubble';
+            const kikiBubble = document.createElement('div');
+            kikiBubble.className = 'chat-bubble kiki-bubble';
 
-        if (data.reply) {
-            kikiBubble.textContent = data.reply;
-        } else {
-            kikiBubble.textContent = "Oops, Kiki is taking a cake break 🎂 Try again shortly!";
-            kikiBubble.classList.add('text-danger');
-            console.error(data);
-        }
-        body.appendChild(kikiBubble);
-        body.scrollTop = body.scrollHeight;
-    })
-    .catch(err => {
-        if (typingIndicator.parentNode) {
-            typingIndicator.parentNode.removeChild(typingIndicator);
-        }
+            if (data.reply) {
+                kikiBubble.textContent = data.reply;
+            } else {
+                kikiBubble.textContent = "Oops, Kiki is taking a cake break 🎂 Try again shortly!";
+                kikiBubble.classList.add('text-danger');
+                console.error(data);
+            }
+            body.appendChild(kikiBubble);
+            body.scrollTop = body.scrollHeight;
+        })
+        .catch(err => {
+            if (typingIndicator.parentNode) {
+                typingIndicator.parentNode.removeChild(typingIndicator);
+            }
 
-        const errorBubble = document.createElement('div');
-        errorBubble.className = 'chat-bubble kiki-bubble text-danger';
-        errorBubble.textContent = "Oops, Kiki is taking a cake break 🎂 Try again shortly!";
-        body.appendChild(errorBubble);
+            const errorBubble = document.createElement('div');
+            errorBubble.className = 'chat-bubble kiki-bubble text-danger';
+            errorBubble.textContent = "Oops, Kiki is taking a cake break 🎂 Try again shortly!";
+            body.appendChild(errorBubble);
 
-        console.error(err);
-        body.scrollTop = body.scrollHeight;
-    });
+            console.error(err);
+            body.scrollTop = body.scrollHeight;
+        });
 }
 

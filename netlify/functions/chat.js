@@ -50,7 +50,7 @@ REALISTIC CUSTOMISATIONS KIKI CAN SUGGEST:
 - Combining flavours available in the menu (e.g. "Can I get the Red Velvet with the Roshmalai filling?")
 - Gift packaging / tub presentation for the Tub Cake
 
-ALL orders go through the Shop page at bakemalai.netlify.app/shop.html or by calling 01310-834233.`;
+ALL orders go through the Shop page at bakemalai.com/shop.html or by calling 01310-834233. Customizations only possible via calling`;
 
 
 const CORS_HEADERS = {

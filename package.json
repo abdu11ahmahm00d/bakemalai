@@ -7,7 +7,9 @@
     "dev": "netlify dev",
     "start": "netlify dev"
   },
-  "dependencies": {},
+  "dependencies": {
+    "googleapis": "^171.4.0"
+  },
   "devDependencies": {
     "netlify-cli": "^17.0.0"
   },
