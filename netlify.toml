@@ -9,6 +9,3 @@
 
 [build]
   functions = "netlify/functions"
-
-[context.production.environment]
-  TELEGRAM_CHAT_ID_2 = "6496231523"
