@@ -2,17 +2,73 @@
 <html lang="en">
 
 <head>
+    <!-- Critical CSS for layout stability -->
+    <style>
+        :root {
+            --color-chocolate: #64493F;
+            --color-cream: #FAF3EE;
+            --color-candy-pink: #CC9180;
+            --font-heading: 'Fredoka One', cursive, sans-serif;
+            --font-body: 'Nunito', sans-serif;
+            --radius-pill: 999px;
+            --color-caramel: #A37E6F;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--color-cream);
+            font-family: var(--font-body);
+            color: var(--color-chocolate);
+            overflow-x: hidden;
+        }
+
+        .hero-wrapper {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: #fff;
+        }
+
+        .hero-logo {
+            width: 400px;
+            height: auto;
+            max-width: 90%;
+            aspect-ratio: 1024 / 751;
+        }
+
+        .navbar {
+            height: 70px;
+            background: #212529;
+        }
+
+        [data-animate] {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Prevent shop section header jumps */
+        .shop-header {
+            height: 220px;
+            background: #64493F;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Shop Bakemalai's premium cakes, sweets, and famous Jaafrani Roshmallai.">
-    <link rel="icon" type="image/png" href="images/favicon.png?v=3">
+    <link rel="icon" type="image/png" href="images/favicon.png">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://bakemalai.netlify.app/shop.html">
     <meta property="og:title" content="Bakemalai Shop - Order Premium Cakes">
     <meta property="og:description"
-        content="Shop Bakemalai's premium cakes, sweets, and famous Jaafrani Roshmallai direktly online.">
+        content="Shop Bakemalai's premium cakes, sweets, and famous Jaafrani Roshmallai directly online.">
     <meta property="og:image" content="https://bakemalai.netlify.app/images/chocolate_premium.webp">
 
     <!-- Twitter -->
@@ -20,7 +76,7 @@
     <meta property="twitter:url" content="https://bakemalai.netlify.app/shop.html">
     <meta property="twitter:title" content="Bakemalai Shop - Order Premium Cakes">
     <meta property="twitter:description"
-        content="Shop Bakemalai's premium cakes, sweets, and famous Jaafrani Roshmallai direktly online.">
+        content="Shop Bakemalai's premium cakes, sweets, and famous Jaafrani Roshmallai directly online.">
     <meta property="twitter:image" content="https://bakemalai.netlify.app/images/chocolate_premium.webp">
 
     <title>Bakemalai - Shop</title>
@@ -46,8 +102,8 @@
     <link rel="preload" as="style" href="css/styles.css">
     <link rel="stylesheet" href="css/styles.css">
     <style>
-        .gradient-text,
-        .section-title {
+        .shop-section-title,
+        .card-title {
             font-family: var(--font-heading) !important;
         }
     </style>
@@ -73,26 +129,29 @@
         </div>
     </nav>
 
-    <main class="container py-5 mt-5">
-        <div class="text-center mb-5 mt-4">
-            <h1 class="display-3 fw-bold section-title gradient-text">Bakemalai Shop</h1>
-            <p class="lead text-chocolate-light" style="font-family: var(--font-subheading);">Bringing your sweet
-                cravings to life.</p>
-        </div>
+    <div style="height: 220px; background: linear-gradient(135deg, var(--color-chocolate), var(--color-caramel));"
+        class="d-flex align-items-center justify-content-center mt-5 pt-4">
+        <h1 class="display-2 fw-bold"
+            style="font-family: var(--font-heading); color: var(--color-cream); text-shadow: 3px 3px 0 var(--color-caramel); letter-spacing: 2px;">
+            Our Sweets</h1>
+    </div>
 
-        <!-- Section 1: Signatures -->
+    <main class="container py-5">
+
+        <!-- Section 1: Premium Cakes -->
         <div class="mb-5 text-center">
-            <h2 class="display-5 fw-bold text-chocolate mb-4 shop-section-title">Exclusive Premium</h2>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <h2 class="display-5 fw-bold text-chocolate mb-4 shop-section-title">Premium Collection <span
+                    class="fs-6 text-muted fw-normal">(1 pound prices)</span></h2>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
                 <div class="col">
                     <div class="card h-100 candy-card border-0 shadow-sm position-relative">
-                        <div class="badge-ribbon">Premium ✨</div>
-                        <img src="images/chocolate_premium.webp" style="height: 180px; object-fit: cover;"
-                            alt="Chocolate Premium" class="rounded-top">
+                        <div class="badge-ribbon" style="background: var(--color-mint) !important;">Premium ✨</div>
+                        <img src="images/chocolate_premium.webp" class="card-img-top candy-card-img"
+                            alt="Chocolate Premium" width="800" height="673" loading="lazy">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-chocolate">Chocolate Premium</h5>
-                            <p class="card-text text-muted mb-3 flex-grow-1 small">Our signature premium layered
-                                Belgian-style chocolate cake.</p>
+                            <p class="card-text text-muted mb-3 flex-grow-1 small">Artisanal dark chocolate cake topped
+                                with Ferrero Rocher and hazelnuts.</p>
                             <h6 class="fw-bold fs-5 mb-3 text-caramel">৳2000</h6>
                             <button onclick="addToCart('p3', 'Chocolate Premium (1lb)', 2000)"
                                 class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
@@ -100,14 +159,14 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card h-100 candy-card border-0 shadow-sm">
-                        <img src="images/extra_overload.webp" style="height: 180px; object-fit: cover;"
-                            alt="Chocolate Overloaded" class="rounded-top">
+                    <div class="card h-100 candy-card border-0 shadow-sm position-relative">
+                        <div class="badge-ribbon">Most Loved 🍫</div>
+                        <img src="images/premium chocolate 2.webp" class="card-img-top candy-card-img"
+                            alt="Chocolate Overloaded" width="800" height="1126" loading="lazy">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-chocolate">Chocolate Overloaded</h5>
-                            <p class="card-text text-muted mb-3 flex-grow-1 small">Death by chocolate! Loaded with
-                                chips,
-                                chunks, and sauce.</p>
+                            <p class="card-text text-muted mb-3 flex-grow-1 small">Maximum chocolate intensity. Fully
+                                loaded with chunks.</p>
                             <h6 class="fw-bold fs-5 mb-3 text-caramel">৳1200</h6>
                             <button onclick="addToCart('p4', 'Chocolate Overloaded (1lb)', 1200)"
                                 class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
@@ -117,11 +176,11 @@
                 <div class="col">
                     <div class="card h-100 candy-card border-0 shadow-sm">
                         <img src="images/red_velvet.webp" class="card-img-top candy-card-img" alt="Red Velvet"
-                            width="800" height="1175" loading="lazy">
+                            width="800" height="630" loading="lazy">
                         <div class="card-body d-flex flex-column">
-                            <h5 class="card-title fw-bold text-chocolate">Red Velvet Cake</h5>
-                            <p class="card-text text-muted mb-3 flex-grow-1 small">A velvet touch of cocoa and cream
-                                cheese frosting.</p>
+                            <h5 class="card-title fw-bold text-chocolate">Red Velvet Heart Cake</h5>
+                            <p class="card-text text-muted mb-3 flex-grow-1 small">Our signature heart-shaped red velvet
+                                with elegant pearl decorations.</p>
                             <h6 class="fw-bold fs-5 mb-3 text-caramel">৳900</h6>
                             <button onclick="addToCart('p7', 'Red Velvet Cake (1lb)', 900)"
                                 class="btn btn-candy-pulse w-100 fw-bold border-0 mt-auto">Add to Cart</button>
@@ -129,9 +188,10 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card h-100 candy-card border-0 shadow-sm">
+                    <div class="card h-100 candy-card border-0 shadow-sm position-relative">
+                        <div class="badge-ribbon" style="background: var(--color-candy-pink) !important;">New 🌸</div>
                         <img src="images/black forest cherry.webp" class="card-img-top candy-card-img"
-                            alt="Black Forest" width="800" height="804" loading="lazy">
+                            alt="Black Forest Cherry" width="800" height="523" loading="lazy">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-chocolate">Black Forest Cherry</h5>
                             <p class="card-text text-muted mb-3 flex-grow-1 small">Classic black forest loaded with
@@ -180,8 +240,8 @@
                 </div>
                 <div class="col">
                     <div class="card h-100 candy-card border-0 shadow-sm">
-                        <img src="images/butterscotch.webp" class="card-img-top candy-card-img" alt="Butterscotch"
-                            loading="lazy">
+                        <img src="images/drive-download-20260406T170135Z-1-001/butterscotched.webp"
+                            class="card-img-top candy-card-img" alt="Butterscotch" loading="lazy">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-chocolate">Butterscotch Cake</h5>
                             <p class="card-text text-muted mb-3 flex-grow-1 small">Sweet and crunchy butterscotch
@@ -206,7 +266,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Row 2 -->
                 <div class="col">
                     <div class="card h-100 candy-card border-0 shadow-sm">
                         <img src="images/blueberry.webp" class="card-img-top candy-card-img" alt="Blueberry Cake"
@@ -240,7 +299,7 @@
                         <img src="images/chocolate tub.webp" class="card-img-top candy-card-img" alt="Chocolate Tub"
                             width="800" height="658" loading="lazy">
                         <div class="card-body d-flex flex-column">
-                            <h5 class="card-title fw-bold text-chocolate">Tub Cake</h5>
+                            <h5 class="card-title fw-bold text-chocolate">Chocolate Tub Cake</h5>
                             <p class="card-text text-muted mb-3 flex-grow-1 small">Fun, easy-to-eat cake served in a
                                 convenient tub.</p>
                             <h6 class="fw-bold fs-5 mb-3 text-caramel">৳400</h6>
